@@ -4,8 +4,7 @@ import pandas as pd
 
 
 data = pd.read_csv("iris.data",header = None, names = ["sepal lenght","sepal width","petal lenght","petal width","class"] ) 
-# working with a data frame
-# column names from description
+
 
 #look at one column / variable
 #sepalLenght = data["sepal lenght"]
@@ -23,3 +22,6 @@ print(data.mean())
 # introduction to working with dataframes
 #https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 #dataframe
+
+#https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#descriptive-statistics
+# see for descriptive statistics
