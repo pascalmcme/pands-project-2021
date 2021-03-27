@@ -1,0 +1,46 @@
+iris.data Summarysepal lenght
+count    150.00
+mean       5.84
+std        0.83
+min        4.30
+25%        5.10
+50%        5.80
+75%        6.40
+max        7.90
+ 
+sepal width
+count    150.00
+mean       3.05
+std        0.43
+min        2.00
+25%        2.80
+50%        3.00
+75%        3.30
+max        4.40
+ 
+petal lenght
+count    150.00
+mean       3.76
+std        1.76
+min        1.00
+25%        1.60
+50%        4.35
+75%        5.10
+max        6.90
+ 
+petal width
+count    150.00
+mean       1.20
+std        0.76
+min        0.10
+25%        0.30
+50%        1.30
+75%        1.80
+max        2.50
+ 
+class
+count                 150
+unique                  3
+top       Iris-versicolor
+freq                   50
+ 

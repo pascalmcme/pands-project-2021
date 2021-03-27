@@ -16,18 +16,16 @@ For opening the data stored in a csv file I used [4] as  a reference. I decided 
 [5] https://pandas.pydata.org/docs/user_guide/index.html#user-guide
 
 # summary statistics
-To create summary statistics for the variables I used pandas detailed user guide [6]
-
-
+To create summary statistics for the variables I used pandas detailed user guide [6]. The describe command can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. In order to output the summary tables to the text file I first convert the data to text and use the inbuilt write funtion to append the table. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the additional options offered by pandas limit the number of decimal places, making the tables easier to read. 
 
 [6] https://pandas.pydata.org/docs/user_guide/basics.html#descriptive-statistics
-
-
-
-
+[7] https://stackoverflow.com/questions/43423950/how-to-print-title-above-pandas-dataframe-to-csv
+[8] https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html#frequently-used-options
 
 
 # additional references
 
 https://scipy-lectures.org/packages/statistics/index.html#data-representation-and-interaction
 overview of statistical methods in python. 
+https://www.w3schools.com/python/python_file_remove.asp
+removing a file

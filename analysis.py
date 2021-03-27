@@ -1,34 +1,58 @@
-#https://realpython.com/python-csv/
+#install packages
 import numpy as np
 import pandas as pd
+import os
 
 
-data = pd.read_csv("iris.data",header = None, names = ["sepal lenght","sepal width","petal lenght","petal width","class"] ) 
+# options
+pd.set_option("precision", 2)
 
 
-print(data)
+# functions
+def append(input,title):
+    with open("output.txt", "a") as f:
+        output = input.to_string()
+        f.write(title + "\n")
+        f.write(output)
+        f.write("\n \n")
+        
+        
 
+# Create the output file
+filename = "output.txt"
+with open("output.txt", "w") as f:
+    f.write("iris.data Summary \n \n")
+    
+
+
+#import the data
+datafile = "iris.data"
+data = pd.read_csv(datafile,header = None, names = ["sepal lenght","sepal width","petal lenght","petal width","class"] ) 
+#print(data)
+
+
+# Descriptive Statistics
 dataDesc = data.describe()  # by default only the numeric data types are included. 
-print(dataDesc)
+
+#print(dataDesc)
+#append(dataDesc) 
 
 
 sepalLenghtDesc = data["sepal lenght"].describe()
-print(sepalLenghtDesc)
-
+append(sepalLenghtDesc,"sepal lenght")
 sepalLenghtDesc = data["sepal width"].describe()
-print(sepalLenghtDesc)
-
+append(sepalLenghtDesc,"sepal width")
 sepalLenghtDesc = data["petal lenght"].describe()
-print(sepalLenghtDesc)
-
+append(sepalLenghtDesc,"petal lenght")
 sepalLenghtDesc = data["petal width"].describe()
-print(sepalLenghtDesc)
-
+append(sepalLenghtDesc,"petal width")
 sepalLenghtDesc = data["class"].describe()
-print(sepalLenghtDesc)
+append(sepalLenghtDesc,"class")
 
 
 
-#look at one column / variable
-#sepalLenght = data["sepal lenght"]
-#print(sepalLenght)
+
+
+
+
+#os.remove("input.txt")
