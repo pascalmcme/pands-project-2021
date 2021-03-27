@@ -6,22 +6,29 @@ import pandas as pd
 data = pd.read_csv("iris.data",header = None, names = ["sepal lenght","sepal width","petal lenght","petal width","class"] ) 
 
 
+print(data)
+
+dataDesc = data.describe()  # by default only the numeric data types are included. 
+print(dataDesc)
+
+
+sepalLenghtDesc = data["sepal lenght"].describe()
+print(sepalLenghtDesc)
+
+sepalLenghtDesc = data["sepal width"].describe()
+print(sepalLenghtDesc)
+
+sepalLenghtDesc = data["petal lenght"].describe()
+print(sepalLenghtDesc)
+
+sepalLenghtDesc = data["petal width"].describe()
+print(sepalLenghtDesc)
+
+sepalLenghtDesc = data["class"].describe()
+print(sepalLenghtDesc)
+
+
+
 #look at one column / variable
 #sepalLenght = data["sepal lenght"]
 #print(sepalLenght)
-
-
-
-
-#print(data)
-
-
-print(data.mean())
-
-#https://pandas.pydata.org/docs/user_guide/10min.html 
-# introduction to working with dataframes
-#https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
-#dataframe
-
-#https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#descriptive-statistics
-# see for descriptive statistics
