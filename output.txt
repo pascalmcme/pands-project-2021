@@ -1,4 +1,6 @@
-iris.data Summarysepal lenght
+iris.data Summary 
+ 
+sepal lenght
 count    150.00
 mean       5.84
 std        0.83
@@ -39,8 +41,10 @@ min        0.10
 max        2.50
  
 class
-count                 150
-unique                  3
-top       Iris-versicolor
-freq                   50
+count                150
+unique                 3
+top       Iris-virginica
+freq                  50
  
+The summary statistics are shown for the variables: Sepal lenght, sepal width, petal lenght, petal width and class.
+These variables refer to the dimensions of the Iris flower and the class refers to type of plant. 
