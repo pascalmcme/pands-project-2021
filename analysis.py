@@ -69,20 +69,26 @@ petalWidth = data["petal width"].to_numpy()
 
 plt.scatter(sepalLenght,sepalWidth)
 plt.savefig("sepal lenght sepal width")
+plt.close()
 
 plt.scatter(sepalLenght,petalLenght)
 plt.savefig("sepal lenght petal lenght")
+plt.close()
 
 plt.scatter(sepalLenght,petalWidth)
 plt.savefig("sepal lenght petal width")
+plt.close()
 
 plt.scatter(sepalWidth,petalWidth)
 plt.savefig("sepal width petal width")
+plt.close()
 
 plt.scatter(sepalWidth , petalLenght)
 plt.savefig("sepal width petal lenght")
+plt.close()
 
 plt.scatter(petalLenght,petalWidth)
 plt.savefig("petal lenght petal width")
+plt.close()
 
 
