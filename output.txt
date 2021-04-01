@@ -46,5 +46,5 @@ unique                 3
 top       Iris-virginica
 freq                  50
  
-The summary statistics are shown for the variables: Sepal lenght, sepal width, petal lenght, petal width and class.
+The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.
 These variables refer to the dimensions of the Iris flower and the class refers to type of plant. 

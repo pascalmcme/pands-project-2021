@@ -16,14 +16,35 @@ For opening the data stored in a csv file I used [4] as  a reference. I decided 
 [5] https://pandas.pydata.org/docs/user_guide/index.html#user-guide
 
 # summary statistics
-To create summary statistics for the variables I used pandas detailed user guide [6]. The describe command can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. In order to output the summary tables to the text file I first convert the data to text and use the inbuilt write funtion to append the table. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the additional options offered by pandas limit the number of decimal places, making the tables easier to read. 
+To create summary statistics for the variables I used the describe() funtion from the pandas module . The describe funtion can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. In order to output the summary tables to the text file I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the option pd.set_option("precision", 2) whichs limit the number of decimal places, making the tables easier to read. 
 
 [6] https://pandas.pydata.org/docs/user_guide/basics.html#descriptive-statistics
 [7] https://stackoverflow.com/questions/43423950/how-to-print-title-above-pandas-dataframe-to-csv
 [8] https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html#frequently-used-options
 
 
+# histograms
+To create historgrams of the variables I use the hist() funtion from matlotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I use a loop with two indexes, to creat a histogram for each variable in a seperate color [11]
+
+
+[9] https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist
+[10]https://matplotlib.org/stable/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py
+[11]https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
+[12]https://stackoverflow.com/questions/37734512/savefig-loop-adds-previous-plots-to-figure
+[13]https://matplotlib.org/3.1.1/tutorials/colors/colors.html
+
+
+# scatter plots
+
+
 # additional references
+
+
+
+
+
+
+
 
 https://scipy-lectures.org/packages/statistics/index.html#data-representation-and-interaction
 overview of statistical methods in python. 
