@@ -54,18 +54,35 @@ for i, j  in zip(variableNames, colors):
     plt.savefig(i + ".png")
     plt.close()
     
-
-# scatter plots
-
-#plt.scatter(x,y)
-
-
-
 # Data as arrays
 
 sepalLenght = data["sepal lenght"].to_numpy()
 sepalWidth = data["sepal width"].to_numpy()
 petalLenght = data["petal lenght"].to_numpy()
 petalWidth = data["petal width"].to_numpy()
+
+
+# scatter plots
+
+#plt.scatter(x,y)
+
+
+plt.scatter(sepalLenght,sepalWidth)
+plt.savefig("sepal lenght sepal width")
+
+plt.scatter(sepalLenght,petalLenght)
+plt.savefig("sepal lenght petal lenght")
+
+plt.scatter(sepalLenght,petalWidth)
+plt.savefig("sepal lenght petal width")
+
+plt.scatter(sepalWidth,petalWidth)
+plt.savefig("sepal width petal width")
+
+plt.scatter(sepalWidth , petalLenght)
+plt.savefig("sepal width petal lenght")
+
+plt.scatter(petalLenght,petalWidth)
+plt.savefig("petal lenght petal width")
 
 

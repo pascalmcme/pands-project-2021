@@ -42,6 +42,13 @@ https://stackoverflow.com/questions/914715/how-to-loop-through-all-but-the-last-
 
 
 # data as arrays
+Storing the columns as arrays is useful in the case that the whole data frame is not needed. It is also necessary for some of the plotting functions in matplotlib, which do not allow for dataframe inputs. The dataFrame.to_numpy() function converts a dataframe object type to a numpy array. dataFrame is the name of the dataframe object, in my case data. In order to get an array for each column or variable I select columns from the data frame using dataFrame("column name") [14]
+
+
+[14] https://pandas.pydata.org/docs/user_guide/10min.html
+[15] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy
+[16] https://stackoverflow.com/questions/46122910/display-print-one-column-from-a-dataframe-of-series-in-pandas
+
 # additional references
 
 
