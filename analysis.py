@@ -55,3 +55,17 @@ for i, j  in zip(variableNames, colors):
     plt.close()
     
 
+# scatter plots
+
+#plt.scatter(x,y)
+
+
+
+# Data as arrays
+
+sepalLenght = data["sepal lenght"].to_numpy()
+sepalWidth = data["sepal width"].to_numpy()
+petalLenght = data["petal lenght"].to_numpy()
+petalWidth = data["petal width"].to_numpy()
+
+

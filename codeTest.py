@@ -32,6 +32,13 @@ datafile = "iris.data"
 variableNames = ["sepal lenght","sepal width","petal lenght","petal width","class"]
 data = pd.read_csv(datafile,header = None, names = variableNames ) 
 
+###################################
+
+print(data.columns)
+
+print(data["sepal lenght"])
+
+
 '''
 sepalLenghtDesc = data["sepal lenght"].describe()
 appendTable(sepalLenghtDesc,"sepal lenght")
@@ -62,10 +69,6 @@ axs[0].hist(sepalLenght)
 axs[1].hist(sepalWidth)
 #plt.hist(data["sepal lenght"],n_bins)
 #plt.show()
-'''
-
 
 
 '''
-
-print(data)
