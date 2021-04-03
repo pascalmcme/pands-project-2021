@@ -65,30 +65,16 @@ petalWidth = data["petal width"].to_numpy()
 # scatter plots
 
 #plt.scatter(x,y)
+xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght]
+yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth]
+Titles = ["sepal lenght sepal width","sepal lenght petal lenght","sepal lenght petalwidth",\
+"sepal width petal width","sepal width petal lenght","petal lenght petal width"]
 
 
-plt.scatter(sepalLenght,sepalWidth)
-plt.savefig("sepal lenght sepal width")
-plt.close()
-
-plt.scatter(sepalLenght,petalLenght)
-plt.savefig("sepal lenght petal lenght")
-plt.close()
-
-plt.scatter(sepalLenght,petalWidth)
-plt.savefig("sepal lenght petal width")
-plt.close()
-
-plt.scatter(sepalWidth,petalWidth)
-plt.savefig("sepal width petal width")
-plt.close()
-
-plt.scatter(sepalWidth , petalLenght)
-plt.savefig("sepal width petal lenght")
-plt.close()
-
-plt.scatter(petalLenght,petalWidth)
-plt.savefig("petal lenght petal width")
-plt.close()
-
+for x in xVariables:
+    for y in yVariables:
+        for t in Titles:
+            plt.scatter(x,y)
+            plt.savefig(t)
+            plt.close()
 

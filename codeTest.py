@@ -1,4 +1,4 @@
-
+'''
 #install packages and set options
 import numpy as np
 import pandas as pd
@@ -39,7 +39,7 @@ print(data.columns)
 print(data["sepal lenght"])
 
 
-'''
+
 sepalLenghtDesc = data["sepal lenght"].describe()
 appendTable(sepalLenghtDesc,"sepal lenght")
 sepalLenghtDesc = data["sepal width"].describe()
@@ -71,4 +71,33 @@ axs[1].hist(sepalWidth)
 #plt.show()
 
 
+
+
+plt.scatter(sepalLenght,sepalWidth)
+plt.savefig("sepal lenght sepal width")
+plt.close()
+
+plt.scatter(sepalLenght,petalLenght)
+plt.savefig("sepal lenght petal lenght")
+plt.close()
+
+plt.scatter(sepalLenght,petalWidth)
+plt.savefig("sepal lenght petal width")
+plt.close()
+
+plt.scatter(sepalWidth,petalWidth)
+plt.savefig("sepal width petal width")
+plt.close()
+
+plt.scatter(sepalWidth , petalLenght)
+plt.savefig("sepal width petal lenght")
+plt.close()
+
+plt.scatter(petalLenght,petalWidth)
+plt.savefig("petal lenght petal width")
+plt.close()
+
+
+
 '''
+

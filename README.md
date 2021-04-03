@@ -38,7 +38,7 @@ To create historgrams of the variables I use the hist() funtion from matlotlib[9
 
 https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
 https://stackoverflow.com/questions/914715/how-to-loop-through-all-but-the-last-item-of-a-list
-
+https://www.w3schools.com/python/python_for_loops.asp
 
 
 # data as arrays
