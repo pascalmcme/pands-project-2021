@@ -16,7 +16,7 @@ For opening the data stored in a csv file I used [4] as  a reference. I decided 
 [5] https://pandas.pydata.org/docs/user_guide/index.html#user-guide
 
 # summary statistics
-To create summary statistics for the variables I used the describe() funtion from the pandas module . The describe funtion can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. In order to output the summary tables to the text file I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the option pd.set_option("precision", 2) whichs limit the number of decimal places, making the tables easier to read. 
+To create summary statistics for the variables I used the describe() funtion from the pandas module . The describe funtion can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the option pd.set_option("precision", 2) whichs limit the number of decimal places, making the tables easier to read. 
 
 [6] https://pandas.pydata.org/docs/user_guide/basics.html#descriptive-statistics
 [7] https://stackoverflow.com/questions/43423950/how-to-print-title-above-pandas-dataframe-to-csv
@@ -24,7 +24,7 @@ To create summary statistics for the variables I used the describe() funtion fro
 
 
 # histograms
-To create historgrams of the variables I use the hist() funtion from matlotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I use a loop with two indexes, to creat a histogram for each variable in a seperate color [11]
+To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I use a loop with two indexes, to creat a histogram for each variable in a seperate color [11]
 
 
 [9] https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist
@@ -34,13 +34,6 @@ To create historgrams of the variables I use the hist() funtion from matlotlib[9
 [13]https://matplotlib.org/3.1.1/tutorials/colors/colors.html
 
 
-# scatter plots
-
-https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
-https://stackoverflow.com/questions/914715/how-to-loop-through-all-but-the-last-item-of-a-list
-https://www.w3schools.com/python/python_for_loops.asp
-
-
 # data as arrays
 Storing the columns as arrays is useful in the case that the whole data frame is not needed. It is also necessary for some of the plotting functions in matplotlib, which do not allow for dataframe inputs. The dataFrame.to_numpy() function converts a dataframe object type to a numpy array. dataFrame is the name of the dataframe object, in my case data. In order to get an array for each column or variable I select columns from the data frame using dataFrame("column name") [14]
 
@@ -48,6 +41,18 @@ Storing the columns as arrays is useful in the case that the whole data frame is
 [14] https://pandas.pydata.org/docs/user_guide/10min.html
 [15] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_numpy.html#pandas.DataFrame.to_numpy
 [16] https://stackoverflow.com/questions/46122910/display-print-one-column-from-a-dataframe-of-series-in-pandas
+
+
+
+# scatter plots
+I created a scatter plot of the the variables using the scatter() function from matplotlib. I use the default paramaters (x,y) to plot 6 pairs of variables. Matplotlib handles the other parts of creating the graph, such as creating the figure and axis. The other funtions I use are plt.savefig(), and plt.close(). Plt.savefig() takes the filename as a paramater and plt.close() is necessary to create a new figure, so that the individual plots, plt.scatter(), are created seperately. To reduce the lines in the code I use a for loop, to create plots for each of the pairs, and a nested for loop for the seperate titles. 
+Note there are four variables in total, however the class variable is categorical so I omit it in the scatter plots. 
+
+
+[17]https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
+[18]https://www.w3schools.com/python/python_for_loops.asp
+
+
 
 # additional references
 
@@ -60,5 +65,6 @@ Storing the columns as arrays is useful in the case that the whole data frame is
 
 https://scipy-lectures.org/packages/statistics/index.html#data-representation-and-interaction
 overview of statistical methods in python. 
+https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
 https://www.w3schools.com/python/python_file_remove.asp
 removing a file
