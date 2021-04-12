@@ -9,7 +9,7 @@ pd.set_option("precision", 2)
 
 # Define functions
 def appendTable(input,title):
-    with open("output.txt", "a") as f:
+    with open("output.txt", "a") as f: # append mode
         output = input.to_string()
         f.write(title + "\n")
         f.write(output)
@@ -22,7 +22,7 @@ def appendText(input):
 
 # Create the output file
 filename = "output.txt"
-with open("output.txt", "w") as f:
+with open("output.txt", "w") as f:  # want a new file - open in write mode/
     f.write("iris.data Summary \n \n")
     
 
@@ -70,12 +70,22 @@ Titles = ["sepal lenght sepal width","sepal lenght petal lenght","sepal lenght p
 "sepal width petal width","sepal width petal lenght","petal lenght petal width"]
 
 
-for x in xVariables:
-    for y in yVariables:
-        for t in Titles:
-            plt.scatter(x,y)
-            plt.savefig(t)
-            plt.close()
+for i, j, k in zip(xVariables,yVariables,Titles):
+    plt.scatter(i,j)
+    #plt.savefig(k)
+    plt.close()
 
 
+
+
+
+
+# summary statistics by iris class
+groupMeans = data.groupby(["class"]).mean()
+appendTable(groupMeans,"\n Group Means")
+groupDesc = data.groupby(["class"]).describe()
+appendTable(groupDesc,"\n Descriptive Statistics by Class")
+
+
+#print(groupMeans)
 

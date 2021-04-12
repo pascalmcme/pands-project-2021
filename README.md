@@ -45,15 +45,25 @@ Storing the columns as arrays is useful in the case that the whole data frame is
 
 
 # scatter plots
-I created a scatter plot of the the variables using the scatter() function from matplotlib. I use the default paramaters (x,y) to plot 6 pairs of variables. Matplotlib handles the other parts of creating the graph, such as creating the figure and axis. The other funtions I use are plt.savefig(), and plt.close(). Plt.savefig() takes the filename as a paramater and plt.close() is necessary to create a new figure, so that the individual plots, plt.scatter(), are created seperately. To reduce the lines in the code I use a for loop, to create plots for each of the pairs, and a nested for loop for the seperate titles. 
-Note there are four variables in total, however the class variable is categorical so I omit it in the scatter plots. 
+I created a scatter plot of the the variables using the scatter() function from matplotlib. I use the default paramaters (x,y) to plot 6 pairs of variables. Matplotlib handles the other parts of creating the graph, such as creating the figure and axis. The other funtions I use are plt.savefig(), and plt.close(). Plt.savefig() takes the filename as a paramater and plt.close() is necessary to create a new figure, so that the individual plots, plt.scatter(), are created seperately. To reduce the lines in the code I use a zip() function 
+This allows for parallel iteration [19]. Note there are four variables in total, however the class variable is categorical so I omit it in the scatter plots. 
 
 
 [17]https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html
 [18]https://www.w3schools.com/python/python_for_loops.asp
+[19]1https://realpython.com/python-zip-function/#:~:text=Python's%20zip()%20function%20is,%2C%20sets%2C%20and%20so%20on.
 
 
+# Additional Analysis
+As one of the original uses for this data set was to see which variables could best be used to differentiate classes of the iris plant, I would like to see how the variables, such as sepal lenght and width, vary across the different classes. Some useful approaches include looking at summary statitics, by group, test statistics and graphical representations. 
 
+
+# group by category
+Note the difference across the classes - implement further statistical tests. 
+ 
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+
+[20] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping
 # additional references
 
 
