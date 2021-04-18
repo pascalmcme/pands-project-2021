@@ -24,7 +24,8 @@ To create summary statistics for the variables I used the describe() funtion fro
 
 
 # histograms
-To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I use a loop with two indexes, to creat a histogram for each variable in a seperate color [11]
+To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I use a historgrom using two indices, one for the variable name and title and another for the color. I use a zip() funtion, which is described in more detail in the scatter plots section.
+
 
 
 [9] https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist
@@ -59,11 +60,21 @@ As one of the original uses for this data set was to see which variables could b
 
 
 # group by category
+To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups[21]. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
+  
+
+
 Note the difference across the classes - implement further statistical tests. 
  
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+[20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+[21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping
+[22] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html
 
-[20] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping
+
+
+
+
+
 # additional references
 
 

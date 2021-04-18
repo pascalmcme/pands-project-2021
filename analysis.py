@@ -18,7 +18,9 @@ def appendTable(input,title):
 
 def appendText(input):
           with open("output.txt", "a") as f:
+              f.write("\n")
               f.write(input) 
+              f.write("\n")
 
 # Create the output file
 filename = "output.txt"
@@ -83,7 +85,7 @@ for i, j, k in zip(xVariables,yVariables,Titles):
 # summary statistics by iris class
 groupMeans = data.groupby(["class"]).mean()
 appendTable(groupMeans,"\n Group Means")
-groupDesc = data.groupby(["class"]).describe()
+groupDesc = data.groupby(["class"]).describe(percentiles = [])
 appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
