@@ -60,11 +60,9 @@ As one of the original uses for this data set was to see which variables could b
 
 
 # group by category
-To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups[21]. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
+To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
   
 
-
-Note the difference across the classes - implement further statistical tests. 
  
 [20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 [21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping
@@ -72,8 +70,15 @@ Note the difference across the classes - implement further statistical tests.
 
 
 
+# statistics
+Use scipy for doing statistcal tests [23]
 
+Reference for statistics [25] 
 
+[26]https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
+[23] https://towardsdatascience.com/inferential-statistics-series-t-test-using-numpy-2718f8f9bf2f
+[24] https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
+[25] https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/
 
 # additional references
 
@@ -84,7 +89,7 @@ Note the difference across the classes - implement further statistical tests.
 
 
 
-https://scipy-lectures.org/packages/statistics/index.html#data-representation-and-interaction
+
 overview of statistical methods in python. 
 https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
 https://www.w3schools.com/python/python_file_remove.asp

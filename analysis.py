@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import scipy as stats
 
 
 pd.set_option("precision", 2)
@@ -89,5 +90,11 @@ groupDesc = data.groupby(["class"]).describe(percentiles = [])
 appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
-#print(groupMeans)
 
+# statistcail test 
+
+
+
+irisSetosa = data.loc[data["class"] == "Iris-setosa"]
+IrisVersicolor = data.loc[data["class"] == "Iris-versicolor"]
+IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
