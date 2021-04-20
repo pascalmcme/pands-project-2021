@@ -73,12 +73,15 @@ To get summary statistics for each class of iris plant I first need to group the
 # statistics
 Use scipy for doing statistcal tests [23]
 
-Reference for statistics [25] 
+
 
 [26]https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
 [23] https://towardsdatascience.com/inferential-statistics-series-t-test-using-numpy-2718f8f9bf2f
 [24] https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
 [25] https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/
+
+[26] https://medium.com/@rrfd/f-tests-and-anovas-examples-with-the-iris-dataset-fe7caa3e21d0 
+[27] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html#scipy.stats.f_oneway
 
 # additional references
 

@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import scipy as stats
+from scipy.stats import f_oneway
+
 
 
 pd.set_option("precision", 2)
@@ -91,10 +93,23 @@ appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
 
-# statistcail test 
 
+# group by class
 
 
 irisSetosa = data.loc[data["class"] == "Iris-setosa"]
 IrisVersicolor = data.loc[data["class"] == "Iris-versicolor"]
 IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
+
+
+# statistics
+
+#F-Test petal lenght
+irisSetosa_petalLenght = irisSetosa["petal lenght"].to_numpy()
+IrisVersicolor_petalLenght = IrisVersicolor["petal lenght"].to_numpy()
+IrisVirginica_petalLenght = IrisVirginica["petal lenght"].to_numpy()
+
+
+# note results do not make sense
+petalTest = f_oneway(irisSetosa_petalLenght,IrisVersicolor_petalLenght,IrisVirginica_petalLenght)
+print(petalTest)
