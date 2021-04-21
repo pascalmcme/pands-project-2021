@@ -75,7 +75,7 @@ Use scipy for doing statistcal tests [23]
 
 
 
-[26]https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
+[26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
 [23] https://towardsdatascience.com/inferential-statistics-series-t-test-using-numpy-2718f8f9bf2f
 [24] https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
 [25] https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/
