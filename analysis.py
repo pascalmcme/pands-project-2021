@@ -83,8 +83,6 @@ for i, j, k in zip(xVariables,yVariables,Titles):
 
 
 
-
-
 # summary statistics by iris class
 groupMeans = data.groupby(["class"]).mean()
 appendTable(groupMeans,"\n Group Means")
@@ -93,10 +91,7 @@ appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
 
-
 # group by class
-
-
 irisSetosa = data.loc[data["class"] == "Iris-setosa"]
 IrisVersicolor = data.loc[data["class"] == "Iris-versicolor"]
 IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
@@ -110,15 +105,16 @@ b = IrisVersicolor["petal lenght"].to_numpy()
 c = IrisVirginica["petal lenght"].to_numpy()
 
 petalLenghtTest = f_oneway(a,b,c)
-print(petalLenghtTest)
+appendText(repr(petalLenghtTest))
 
 #F-Test petal width
 a = irisSetosa["petal width"].to_numpy()
 b = IrisVersicolor["petal width"].to_numpy()
 c = IrisVirginica["petal width"].to_numpy()
 
-petalWidthTest = f_oneway(a,b,c)
-print(petalWidthTest)
+
+petalWidthTest = (f_oneway(a,b,c))
+appendText(repr(petalLenghtTest))
 
 #F-Test sepal lenght
 a = irisSetosa["sepal lenght"].to_numpy()
@@ -126,7 +122,7 @@ b = IrisVersicolor["sepal lenght"].to_numpy()
 c = IrisVirginica["sepal lenght"].to_numpy()
 
 sepalLenghtTest = f_oneway(a,b,c)
-print(sepalLenghtTest)
+appendText(repr(petalLenghtTest))
 
 #F-Test sepal width
 a = irisSetosa["sepal width"].to_numpy()
@@ -134,4 +130,6 @@ b = IrisVersicolor["sepal width"].to_numpy()
 c = IrisVirginica["sepal width"].to_numpy()
 
 sepalLenghtTest = f_oneway(a,b,c)
-print(sepalLenghtTest)
+appendText(repr(sepalLenghtTest))
+
+#appendText(sepalLenghtTest)

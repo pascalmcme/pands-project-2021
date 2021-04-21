@@ -82,7 +82,8 @@ Use scipy for doing statistcal tests [23]
 
 [26] https://medium.com/@rrfd/f-tests-and-anovas-examples-with-the-iris-dataset-fe7caa3e21d0 
 [27] https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html#scipy.stats.f_oneway
-
+[28] https://www.w3schools.com/python/scipy_statistical_significance_tests.asp
+[29] https://www.kite.com/python/docs/builtins.repr
 # additional references
 
 

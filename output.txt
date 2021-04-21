@@ -41,10 +41,10 @@ min        0.10
 max        2.50
  
 class
-count             150
-unique              3
-top       Iris-setosa
-freq               50
+count                 150
+unique                  3
+top       Iris-versicolor
+freq                   50
  
 
 The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.
@@ -66,3 +66,11 @@ Iris-setosa             50.0  5.01  0.35  4.3  5.0  5.8        50.0  3.42  0.38 
 Iris-versicolor         50.0  5.94  0.52  4.9  5.9  7.0        50.0  2.77  0.31  2.0  2.8  3.4         50.0  4.26  0.47  3.0  4.35  5.1        50.0  1.33  0.20  1.0  1.3  1.8
 Iris-virginica          50.0  6.59  0.64  4.9  6.5  7.9        50.0  2.97  0.32  2.2  3.0  3.8         50.0  5.55  0.55  4.5  5.55  6.9        50.0  2.03  0.27  1.4  2.0  2.5
  
+
+F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91)
+
+F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91)
+
+F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91)
+
+F_onewayResult(statistic=47.36446140299382, pvalue=1.3279165184572242e-16)
