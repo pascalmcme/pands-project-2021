@@ -97,7 +97,17 @@ IrisVersicolor = data.loc[data["class"] == "Iris-versicolor"]
 IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
 
 
-# statistics
+
+# group graphs
+
+
+
+
+
+
+
+
+#statistical tests
 
 #F-Test petal lenght
 a = irisSetosa["petal lenght"].to_numpy()

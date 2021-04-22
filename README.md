@@ -10,10 +10,18 @@ The iris data set is available from the UCI machine learning repository [1]. It 
 [3] Fisher,R.A. "The use of multiple measurements in taxonomic problems" Annual Eugenics, 7, Part II, 179-188 (1936); also in "Contributions to Mathematical Statistics" (John Wiley, NY, 1950).
 
 # opening the data
-For opening the data stored in a csv file I used [4] as  a reference. I decided to use the pandas module to import the data as it made it easy to write the code. With one line of code I could import the data and store it as a data frame. This is a familiar data structure, with the rows showing different observations and the columns their respective attributes. Pandas also offers many other useful features, for example manipulating or visualising data [5]. The 
+For opening the data stored in a csv file I used [4] as  a reference. I decided to use the pandas module to import the data as it made it easy to write the code. With one line of code I could import the data and store it as a data frame. This is a familiar data structure, with the rows showing different observations and the columns their respective attributes. Pandas also offers many other useful features, for example manipulating or visualising data [5]. 
 
 [4] https://realpython.com/python-csv/
 [5] https://pandas.pydata.org/docs/user_guide/index.html#user-guide
+
+
+# output file
+To save the output from the analysis I output my results to output.txt. I use a with statement to shorten the code and deal with error handling [6]. To creat the text file I use the function open() which takes the file name and the mode as its arguements. I open the file in write mode to create a new file when the program starts. To append the output of my results I write an append() function. This uses the file output.txt and opens it in append mode. 
+
+
+[6] https://www.geeksforgeeks.org/with-statement-in-python/#:~:text=with%20statement%20in%20Python%20is,with%20statement%20makes%20code%20cleaner.
+[7] https://realpython.com/working-with-files-in-python/
 
 # summary statistics
 To create summary statistics for the variables I used the describe() funtion from the pandas module . The describe funtion can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the option pd.set_option("precision", 2) whichs limit the number of decimal places, making the tables easier to read. 
@@ -59,7 +67,7 @@ This allows for parallel iteration [19]. Note there are four variables in total,
 As one of the original uses for this data set was to see which variables could best be used to differentiate classes of the iris plant, I would like to see how the variables, such as sepal lenght and width, vary across the different classes. Some useful approaches include looking at summary statitics, by group, test statistics and graphical representations. 
 
 
-# group by category
+# summary statistics by group
 To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
   
 
@@ -70,12 +78,22 @@ To get summary statistics for each class of iris plant I first need to group the
 
 
 
-# statistics
+# group by class
+For the statistical test I need to be able to seperate the data by class. Using the function loc[] I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
+
+[26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
+[27] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html
+
+# test statistics
+I am interested seeing how the variables, such as sepal lenght, vary across the different species. It is therefore worth testing  whether the variation between classes observed in the summary statistics is due to chance or whether it is due to differences across the species. 
+
+
+
 Use scipy for doing statistcal tests [23]
 
 
 
-[26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
+
 [23] https://towardsdatascience.com/inferential-statistics-series-t-test-using-numpy-2718f8f9bf2f
 [24] https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
 [25] https://www.statisticshowto.com/probability-and-statistics/hypothesis-testing/anova/
