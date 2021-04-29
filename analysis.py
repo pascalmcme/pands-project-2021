@@ -115,6 +115,7 @@ b = IrisVersicolor["petal lenght"].to_numpy()
 c = IrisVirginica["petal lenght"].to_numpy()
 
 petalLenghtTest = f_oneway(a,b,c)
+appendText("Petal Lenght F-Test")
 appendText(repr(petalLenghtTest))
 
 #F-Test petal width
@@ -124,7 +125,8 @@ c = IrisVirginica["petal width"].to_numpy()
 
 
 petalWidthTest = (f_oneway(a,b,c))
-appendText(repr(petalLenghtTest))
+appendText("Petal Width F-Test")
+appendText(repr(petalWidthTest))
 
 #F-Test sepal lenght
 a = irisSetosa["sepal lenght"].to_numpy()
@@ -132,7 +134,8 @@ b = IrisVersicolor["sepal lenght"].to_numpy()
 c = IrisVirginica["sepal lenght"].to_numpy()
 
 sepalLenghtTest = f_oneway(a,b,c)
-appendText(repr(petalLenghtTest))
+appendText("Sepal Lenght F-Test")
+appendText(repr(sepalLenghtTest))
 
 #F-Test sepal width
 a = irisSetosa["sepal width"].to_numpy()
@@ -140,6 +143,7 @@ b = IrisVersicolor["sepal width"].to_numpy()
 c = IrisVirginica["sepal width"].to_numpy()
 
 sepalLenghtTest = f_oneway(a,b,c)
+appendText("Sepal Width F-Test")
 appendText(repr(sepalLenghtTest))
 
 #appendText(sepalLenghtTest)
