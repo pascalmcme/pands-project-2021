@@ -57,6 +57,8 @@ To create historgrams of the variables I use the hist() funtion from matplotlib[
 [11]https://stackoverflow.com/questions/18648626/for-loop-with-two-variables
 [12]https://stackoverflow.com/questions/37734512/savefig-loop-adds-previous-plots-to-figure
 [13]https://matplotlib.org/3.1.1/tutorials/colors/colors.html
+https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot#seaborn.histplot
+https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette
 
 
 # Data as Arrays

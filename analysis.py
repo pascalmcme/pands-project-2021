@@ -7,10 +7,8 @@ from scipy.stats import f_oneway
 import seaborn as sns
 
 
-
-
-pd.set_option("precision", 2)
-
+pd.set_option("precision", 2) # set pandas decimal precision
+sns.set_theme(palette="pastel") #set color seaborn plots
 
 # Define functions
 def appendTable(input,title):
@@ -52,15 +50,18 @@ appendText(summaryDesc)
 
 # histograms
 
-colors = ["aqua","coral","indigo","lavender","lightgreen"]
 
-n_bins = 15
-for i, j  in zip(variableNames, colors):
-    plt.hist(data[i], n_bins, facecolor = j)
+for i in variableNames:
+
+    sns.histplot(data=data, x=i, hue="class", multiple="stack",bins=15,)
+    sns.light_palette("seagreen", as_cmap=True)
+    plt.xlabel(i+" in cm")
     plt.title("Histogram of " + i)
     plt.savefig(i + ".png")
     plt.close()
-    
+
+
+
 # Data as arrays
 
 sepalLenght = data["sepal lenght"].to_numpy()
@@ -78,11 +79,11 @@ Titles = ["sepal lenght sepal width","sepal lenght petal lenght","sepal lenght p
 
 
 for i, j, k in zip(xVariables,yVariables,Titles):
-    plt.scatter(i,j)
-    #plt.savefig(k)
+    #plt.scatter(i,j)
+    sns.scatterplot(data=data, x=i, y=j,hue="class")
+    plt.savefig(k)
     plt.close()
-
-
+    
 
 
 # summary statistics by iris class
@@ -97,14 +98,6 @@ appendTable(groupDesc,"\n Descriptive Statistics by Class")
 irisSetosa = data.loc[data["class"] == "Iris-setosa"]
 IrisVersicolor = data.loc[data["class"] == "Iris-versicolor"]
 IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
-
-
-
-# group graphs
-
-
-
-
 
 
 
@@ -149,3 +142,23 @@ appendText("Sepal Width F-Test")
 appendText(repr(sepalLenghtTest))
 
 #appendText(sepalLenghtTest)
+
+
+
+''''
+
+# histograms
+
+colors = ["aqua","coral","indigo","lavender","lightgreen"]
+
+n_bins = 15
+for i, j  in zip(variableNames, colors):
+    plt.hist(data[i], n_bins, facecolor = j)
+    plt.title("Histogram of " + i)
+    plt.savefig(i + ".png")
+    plt.close()
+    
+sns.kdeplot(data=data, x="petal lenght", hue="class", multiple="stack")
+plt.show()
+
+'''
