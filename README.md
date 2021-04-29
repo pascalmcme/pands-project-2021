@@ -1,3 +1,19 @@
+#Table of Contents
+* Summary of the data set
+* Opening the Data
+* Output File
+* Summary Statistics
+* Histograms
+* Data as Arrays
+* Scatter Plots
+* Additional Analysis
+    * Summary Statistics by Group
+    * Group by Class
+    * Statistical Tests
+
+
+
+
 
 
 # Summary of the data set
@@ -84,10 +100,10 @@ For the statistical test I need to be able to seperate the data by class. Using 
 [26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values
 [27] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html
 
-# Test Statistics
+# Statistical Tests
 I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing  whether the variation between classes observed in the summary statistics is due to chance or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [25]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width . The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
 
-I import scipy, which includes many different functions for statisitical testing [24]. I use the scipy function f_oneway() for one-way ANOVA[27]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;<sub>versicolor;<sub>petal lenght;<sub>svirginica;<sub>petal lenght;<sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
+I import scipy, which includes many different functions for statisitical testing [24]. I use the scipy function f_oneway() for one-way ANOVA[27]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
 
 My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the chances of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91. The full results can be found in the output.txt. 
 
@@ -108,9 +124,8 @@ My result allow me to reject the null hpyothesis that the measurements are the s
 
 
 
-overview of statistical methods in python. 
-https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html
-https://www.w3schools.com/python/python_file_remove.asp
 
-https://www.kite.com/python/docs/builtins.repr
-https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog
+https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html overview of statistical methods in python. 
+https://www.kite.com/python/docs/builtins.repr convert value to string
+https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog writing to github
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
