@@ -1,15 +1,15 @@
-#Table of Contents
-* Summary of the data set
-* Opening the Data
-* Output File
-* Summary Statistics
-* Histograms
-* Data as Arrays
-* Scatter Plots
-* Additional Analysis
-    * Summary Statistics by Group
-    * Group by Class
-    * Statistical Tests
+# Table of Contents
+* [Summary of the data set](#summary-of-the-data-set)
+* [Opening the Data](#opening-the-data)
+* [Output File](#output-file)
+* [Summary Statistics](#summary-statistics)
+* [Histograms](#histograms)
+* [Data as Arrays](#data-as-arrays)
+* [Scatter Plots](#[scatter-plots)
+* [Additional Analysis](#additional-analysis)
+    * [Summary Statistics by Group](#summary-statistics-by-group])
+    * [Group by Class](#group-by-class)
+    * [Statistical Tests](#statistical-tests)
 
 
 
