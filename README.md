@@ -49,8 +49,8 @@ To create summary statistics for the variables I used the describe() funtion fro
 
 # Histograms
 To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I use a historgrom using two indices, one for the variable name and title and another for the color. I use a zip() funtion, which is described in more detail in the scatter plots section.
-
-
+![alt-text-1](petal-lenght.png "title-1") ![alt-text-2](petal-width.png "title-2")
+![alt-text-1](sepal-lenght.png "title-1") ![alt-text-2](sepal-width.png "title-2")
 
 [9] https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist
 [10]https://matplotlib.org/stable/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py

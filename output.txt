@@ -1,6 +1,6 @@
 iris.data Summary 
  
-sepal lenght
+sepal-lenght
 count    150.00
 mean       5.84
 std        0.83
@@ -10,7 +10,7 @@ min        4.30
 75%        6.40
 max        7.90
  
-sepal width
+sepal-width
 count    150.00
 mean       3.05
 std        0.43
@@ -20,7 +20,7 @@ min        2.00
 75%        3.30
 max        4.40
  
-petal lenght
+petal-lenght
 count    150.00
 mean       3.76
 std        1.76
@@ -30,7 +30,7 @@ min        1.00
 75%        5.10
 max        6.90
  
-petal width
+petal-width
 count    150.00
 mean       1.20
 std        0.76
@@ -51,7 +51,7 @@ The summary statistics are shown for the variables: sepal lenght, sepal width, p
 These variables refer to the dimensions of the Iris flower and the class refers to type of plant. 
 
  Group Means
-                 sepal lenght  sepal width  petal lenght  petal width
+                 sepal-lenght  sepal-width  petal-lenght  petal-width
 class                                                                
 Iris-setosa              5.01         3.42          1.46         0.24
 Iris-versicolor          5.94         2.77          4.26         1.33
@@ -59,7 +59,7 @@ Iris-virginica           6.59         2.97          5.55         2.03
  
 
  Descriptive Statistics by Class
-                sepal lenght                            sepal width                            petal lenght                             petal width                           
+                sepal-lenght                            sepal-width                            petal-lenght                             petal-width                           
                        count  mean   std  min  50%  max       count  mean   std  min  50%  max        count  mean   std  min   50%  max       count  mean   std  min  50%  max
 class                                                                                                                                                                         
 Iris-setosa             50.0  5.01  0.35  4.3  5.0  5.8        50.0  3.42  0.38  2.3  3.4  4.4         50.0  1.46  0.17  1.0  1.50  1.9        50.0  0.24  0.11  0.1  0.2  0.6
@@ -67,18 +67,18 @@ Iris-versicolor         50.0  5.94  0.52  4.9  5.9  7.0        50.0  2.77  0.31 
 Iris-virginica          50.0  6.59  0.64  4.9  6.5  7.9        50.0  2.97  0.32  2.2  3.0  3.8         50.0  5.55  0.55  4.5  5.55  6.9        50.0  2.03  0.27  1.4  2.0  2.5
  
 
-Petal Lenght F-Test
+Petal-Lenght F-Test
 
 F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91)
 
-Petal Width F-Test
+Petal-Width F-Test
 
 F_onewayResult(statistic=959.3244057257613, pvalue=4.376956957488959e-85)
 
-Sepal Lenght F-Test
+Sepal-Lenght F-Test
 
 F_onewayResult(statistic=119.26450218450468, pvalue=1.6696691907693826e-31)
 
-Sepal Width F-Test
+Sepal-Width F-Test
 
 F_onewayResult(statistic=47.36446140299382, pvalue=1.3279165184572242e-16)
