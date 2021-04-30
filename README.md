@@ -269,12 +269,12 @@ appendText("Petal-Lenght F-Test")
 appendText(repr(petalLenghtTest))
 ```
 
-I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing whether the variation between classes observed in the summary statistics is due to chance (we only have samples of the populations) or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [31]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width. The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
+I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing whether the variation between classes observed in the summary statistics is due to chance (we only have samples of the populations) or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [31]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width. The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>).  
 
-I import scipy, which includes many different functions for statisitical testing [32]. I use the scipy function "f_oneway()" for one-way ANOVA[]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
+I import scipy, which includes many different functions for statisitical testing [32]. I use the scipy function "f_oneway()" for one-way ANOVA [34]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
 
 
-| Petal-Lenght F-Test                                                         |
+| ANOVA Test Results                                                          |
 |-----------------------------------------------------------------------------|
 | Petal-Lenght F-Test                                                         |
 | F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91) |
@@ -288,12 +288,12 @@ I import scipy, which includes many different functions for statisitical testing
 
 My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the probability of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91.
 
-Although these results will have looked obvious from the summary statistics and plots, it is useful to carry out these test to know how certain we can be of our results.  It is also useful for demonstrating how scipy can be used in python, when the summary statistcics and graphs are less clear. 
+Although these results will have looked obvious from the summary statistics and plots, it is useful to carry out these test to know how certain we can be of our results.  It is also useful for demonstrating how scipy can be used in python, when our inferences from summary statistcics and plots are less clear. 
 
 
 
 # Conclusion
-The main goal of this project was to use python for analysing a data set. Important takeaways are learning about the benefits of python's main packages for data analysis, which include pandas, numpy and matplotlib. These packages allowed for data manipulation, visualisation and statistical testing. Working with python is also very flexible, for example in allowing customization of outputs such as plots and statistics. Working with seaborn also offers many useful lessons for data visualisation. Their examples encourage taking different approaches for plotting data. This allowed for useful insights that would have otherwise required further analysis. 
+The main goal of this project was to use python for analysing a data set. Important takeaways are learning about the benefits of python's main packages for data analysis, which include pandas, matplotlib and scipy. These packages allowed for data manipulation, visualisation and statistical testing. Working with python is also very flexible, for example in allowing customization of outputs such as plots and statistics. Working with seaborn also offers many useful lessons for data visualisation which allowed for useful insights that would have otherwise required further analysis. 
 
 # References
 [1] https://archive.ics.uci.edu/ml/datasets/iris<br> 

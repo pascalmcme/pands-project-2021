@@ -60,7 +60,7 @@ for i in variableNames:
 
 for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
 
-    sns.histplot(data=data, x=i, hue="Class",multiple="stack",bins=15,kde=True) # remove class for kde 
+    sns.histplot(data=data, x=i, hue="Class",multiple="stack",bins=15,kde=True) #plot options
     sns.light_palette("seagreen", as_cmap=True)
     plt.xlabel(i+" in cm")
     plt.title("Histogram of " + i)
@@ -71,7 +71,7 @@ for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
 
 # Data as arrays
 
-sepalLenght = data["Sepal-Lenght"].to_numpy()
+sepalLenght = data["Sepal-Lenght"].to_numpy() #create an array from data frame column "Sepal-Lenght"
 sepalWidth = data["Sepal-Width"].to_numpy()
 petalLenght = data["Petal-Lenght"].to_numpy()
 petalWidth = data["Petal-Width"].to_numpy()
@@ -79,10 +79,10 @@ petalWidth = data["Petal-Width"].to_numpy()
 
 # scatter plots
 
-xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght]
-yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth]
+xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght] # these are lists of out arrays
+yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth] # create in this order to create the scatter plots
 Titles = ["Sepal-Lenght_Sepal-Width","Sepal-Lenght_Petal-Lenght","Sepal-Lenght_Petal-Width",\
-"Sepal-Width_Petal-Width","Sepal-Width_Petal-Lenght","Petal-Lenght_Petal-Width"]
+"Sepal-Width_Petal-Width","Sepal-Width_Petal-Lenght","Petal-Lenght_Petal-Width"] # the loop will look like this.
 
 
 for i, j, k in zip(xVariables,yVariables,Titles):
@@ -95,7 +95,7 @@ for i, j, k in zip(xVariables,yVariables,Titles):
 
 
 # summary statistics by iris class
-groupMeans = data.groupby(["Class"]).mean()
+groupMeans = data.groupby(["Class"]).mean() #group the data by class, create table results from these grouped arrays with mean()
 appendTable(groupMeans,"\n Group Means")
 groupDesc = data.groupby(["Class"]).describe()
 appendTable(groupDesc,"\n Descriptive Statistics by Class")
@@ -103,8 +103,8 @@ appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
 # group by class
-irisSetosa = data.loc[data["Class"] == "Iris-setosa"]
-IrisVersicolor = data.loc[data["Class"] == "Iris-versicolor"]
+irisSetosa = data.loc[data["Class"] == "Iris-setosa"] # select the rows where class = iris-setosa. 
+IrisVersicolor = data.loc[data["Class"] == "Iris-versicolor"] # the object IrisVersicolor is a data frame
 IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
 
 
@@ -113,11 +113,11 @@ IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
 #statistical tests
 
 #F-Test petal lenght
-a = irisSetosa["Petal-Lenght"].to_numpy()
-b = IrisVersicolor["Petal-Lenght"].to_numpy()
+a = irisSetosa["Petal-Lenght"].to_numpy() # select the colum petal lenght from the iris-setosa data frame and make an array.
+b = IrisVersicolor["Petal-Lenght"].to_numpy() 
 c = IrisVirginica["Petal-Lenght"].to_numpy()
 
-petalLenghtTest = f_oneway(a,b,c)
+petalLenghtTest = f_oneway(a,b,c) # f_oneway() is an external function. Takes groups to compare as inputs. 
 appendText("Petal-Lenght F-Test")
 appendText(repr(petalLenghtTest))
 
