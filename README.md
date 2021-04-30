@@ -24,7 +24,7 @@
 
 The iris data set is available from the UCI machine learning repository [1]. It is a frequently used database for demonstrating tools in data analysis [2]. The data set consists of 150 observations of iris plants. Five attributes are recorded. Sepal length, sepal width, petal length, petal width, are measured in centimetres. The class if also given which refers to the type of iris plant. There are three classes with 50 observations of each, namely Iris Setosa, Iris Versicolour and Iris Virginica. The data set was famously used in a study measuring how these three classes of iris could best be differentiated based on their measurements [3].
 
-![alt-text-1](iris-flowers.png)
+![flower](iris-flowers.png)
 
 
 # Running the Code
@@ -270,7 +270,7 @@ appendText("Petal-Lenght F-Test")
 appendText(repr(petalLenghtTest))
 ```
 
-I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing whether the variation between classes observed in the summary statistics is due to chance or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [31]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width. The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
+I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing whether the variation between classes observed in the summary statistics is due to chance (we only have samples of the populations) or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [31]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width. The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
 
 I import scipy, which includes many different functions for statisitical testing [32]. I use the scipy function "f_oneway()" for one-way ANOVA[]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
 
@@ -338,7 +338,7 @@ The main goal of this project was to use python for analysing a data set. Import
 # additional references
 
 
-https://github.com/sandraelekes/pands-project-2020/blob/master/README.md- example project<br> 
+https://github.com/sandraelekes/pands-project-2020/blob/master/README.md- example for using seaborn and readme.<br> 
 https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html<br> 
 https://www.kite.com/python/docs/builtins.repr<br> 
 https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog<br> 
