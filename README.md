@@ -24,7 +24,7 @@
 
 The iris data set is available from the UCI machine learning repository [1]. It is a frequently used database for demonstrating tools in data analysis [2]. The data set consists of 150 observations of iris plants. Five attributes are recorded. Sepal length, sepal width, petal length, petal width, are measured in centimetres. The class if also given which refers to the type of iris plant. There are three classes with 50 observations of each, namely Iris Setosa, Iris Versicolour and Iris Virginica. The data set was famously used in a study measuring how these three classes of iris could best be differentiated based on their measurements [3].
 
-[alt-text-1](iris-flowers.png "title-1")
+![alt-text-1](iris-flowers.png)
 
 
 # Running the Code
@@ -46,9 +46,9 @@ pd.set_option("precision", 2) # set pandas decimal precision
 sns.set_theme(palette="magma") #set color seaborn plots
 ```
 
-Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for the plotting functions. Pandas is a tool for data analysis and manipulation. I use pandas to import the data and convert it into a data frame, and for summary statistics. Matplotlib.pyplot includes many different functions for plotting. It offers extensive tools for creating and customising plots. Seaborn offers additional plotting tools and is based on Matplotlib. Finally, I use scipy for its statistical testing functions and the f_oneway function is for one-way ANOVA testing. 
+I import the above packages which contain additional functions. Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for the plotting functions. Pandas is a tool for data analysis and manipulation. I use pandas' functions to import the data and convert it into a data frame, and for summary statistics. Matplotlib.pyplot includes many different functions for plotting. It offers extensive tools for creating and customising plots. Seaborn offers additional plotting tools and is based on Matplotlib. Finally, I use scipy for its statistical testing functions and the f_oneway function is used for one-way ANOVA testing. 
 
-For the pandas module I use "set_option("precision", 2)" which limits decimal outputs to two decimal places. For seaborn, I use the "set_theme(palette="magma")", which defines the color scheme of seaborn plots. 
+For the pandas module I use "set_option("precision", 2)" which limits decimal outputs to two decimal places. For seaborn, I use the "set_theme(palette="magma")", which defines the color scheme of plots. 
 
 
 # Opening the Data
@@ -141,7 +141,7 @@ for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
 
 
 
-To create historgrams of the variables I use the "histplot()" from seaborn. Initially I used Matplotlib, however I chose Seaborn for the additional features. The first two paramaters of the histplot function are the data, the variables (columns) to be plotted. the option "multiple="stack"" means that multiple observations are stacked on top of each other, which allows all the information to be in the same place, with the downside of it being slightly less clear. bins=15 sets the numbers of intervals to divide the data the observations. The additional features offered here by Seaborn are the options hue and kde. Setting "hue="Class"" results in a different bar color for each class of iris. This allows for useful comparisons between the classes. For example, from the plots below we notice that iris-setosa has the smallest petal lenght and width measurments while iris-verginica has the largest. Setting "kde=True" allows us to see an estimate of the full distibution, as we only observe a sample which is subject to sample variation, this setting gives us a better idea of the underlying population.  The matplotlib functions handle the other parts of creating the plot, such as labelling the axes "plt.xlabel()", adding a title "plt.title()", saving the figure "plt.savefig()", and closing it before starting a new one "plt.close()".
+To create historgrams of the variables I use the "histplot()" from seaborn. Initially I used Matplotlib, however I chose Seaborn for the additional features. The first two paramaters of the histplot function are the data and the variables (columns) to be plotted. The option "multiple="stack"" means that multiple observations are stacked on top of each other, which allows all the information to be in the same place, with the downside of it being slightly less clear. bins=15 sets the numbers of intervals to divide the observations. The additional features offered here by Seaborn are the options hue and kde. Setting "hue="Class"" results in a different bar colour for each class of iris. This allows for useful comparisons between the classes. For example, from the plots below we notice that iris-setosa has the smallest petal lenght and width measurments while iris-verginica has the largest. Setting "kde=True" allows us to see an estimate of the full distibution, as we only observe a sample which is subject to sample variation, this setting gives us a better idea of the underlying population.  The matplotlib functions handle the other parts of creating the plot, such as labelling the axes "plt.xlabel()", adding a title "plt.title()", saving the figure "plt.savefig()", and closing it before starting a new one "plt.close()".
 
 The histograms offer a lot more information than the summary statistics. By visualising the data we can see what the distributions look like. The hue="Class" option is especially useful for providing insights as we can see the different distributions for each class of iris plant. For example, we can see that iris-setosa plants have small petal measurements but are average when it comes to sepal measurements.
 
@@ -189,7 +189,7 @@ for i, j, k in zip(xVariables,yVariables,Titles):
     
 ```
 
-I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of "zip()", which allows multiple variables to be iterated in the loop. Note that "i" and "j" corresponds to the column title "k". I created a scatter plot of the the variables using the "scatterplot()" funtion from Seaborn. "Scatterplot()" takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which is detailed in [histograms](#histograms).
+I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of "zip()", which allows multiple variables to be iterated in the loop. Note that "i" and "j" correspond to the column title "k". I created a scatter plot of the the variables using the "scatterplot()" funtion from Seaborn. "Scatterplot()" takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which is detailed in [histograms](#histograms).
 
 The scatter plots also tell us a lot about the data, especially after introducing the hue option. This allows us to see the correlations for the different variables within each class. For example we can see a positive correlation between petal lenght and petal width for iris-virginica and iris-versicolor, but the relationship is less apparent in iris setosa. We can also see many different inisghts, such as that the relationship between sepal width and petal width is weak. 
 
@@ -205,7 +205,7 @@ The scatter plots also tell us a lot about the data, especially after introducin
 
 
 # Additional Analysis
-As one of the original uses for this data set was to see which variables could best be used to differentiate classes of the iris plant, I would like to see how the variables, such as sepal lenght and width, vary across the different classes. Some useful approaches include looking at summary statitics, by group, test statistics and graphical representations. 
+As one of the original uses for this data set was to see which variables could best be used to differentiate classes of the iris plant, I would like to see how the variables, such as sepal lenght and width, vary across the different classes. While the plots contain lots of useful information in this regard, I would also like to look at these differences through summary statistics and statistical tests.
 
 
 # Summary Statistics by Group
@@ -241,7 +241,7 @@ To get summary statistics for each class of iris plant I first need to group the
 | Iris-virginica | 50.0  | 6.59 | 0.64 | 4.9 | 6.23 | 6.5 | 6.9 | 7.9 |
 |                |       |      |      |     |      |     |     |     |
 
-
+The summary statistics are an alternative method to showing how these measurements vary across the different types of iris. Looking at the group means, we can see the difference in the average measurements is typically within one or two centimetres. 
 
 
 
@@ -294,7 +294,7 @@ Although these results will have looked obvious from the summary statistics and 
 
 
 # Conclusion
-The main goal of this project was to use python for analysing a data set. Important takeaways are learning about the benefits of python's main packages for data analysis, which include pandas, numpy and matplotlib. These packages allowed for data manipulation, visualisation and statistical testing. Working with python is also very flexible, for example in allowing customization of outputs such as plots and statistics. Working with seaborn also offers many useful lessons for data visualisation. Their examples encourage taking different approaches for plotting data. This allowed for useful insights, especially from the scatter plots. 
+The main goal of this project was to use python for analysing a data set. Important takeaways are learning about the benefits of python's main packages for data analysis, which include pandas, numpy and matplotlib. These packages allowed for data manipulation, visualisation and statistical testing. Working with python is also very flexible, for example in allowing customization of outputs such as plots and statistics. Working with seaborn also offers many useful lessons for data visualisation. Their examples encourage taking different approaches for plotting data. This allowed for useful insights that would have otherwise required further analysis. 
 
 # References
 [1] https://archive.ics.uci.edu/ml/datasets/iris<br> 
