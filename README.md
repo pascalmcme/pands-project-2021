@@ -22,7 +22,7 @@
 
 # Summary of the data set
 
-The iris data set is available from the UCI machine learning repository [1]. It is a frequently used database for demonstrating tools in data analysis [2]. The data set consists of 150 observations of iris plants. Five attributes are recorded. Sepal length, sepal width, petal length, petal width, are measured in centimetres. The class if also given which refers to the type of iris plant. There are three classes with 50 observations of each, namely Iris Setosa, Iris Versicolour and Iris Virginica. The data set was famously used in a study measuring how these three classes of iris could best be differentiated based on their measurements [3].
+The iris data set is available from the UCI machine learning repository [1]. It is a frequently used database for demonstrating tools in data analysis [2]. The data set consists of 150 observations of iris plants. Five attributes are recorded. Sepal length, sepal width, petal length, petal width, are measured in centimetres. The class if also given which refers to the type of iris plant. There are three classes with 50 observations of each, namely Iris setosa, Iris versicolour and Iris virginica. The data set was famously used in a study measuring how these three classes of iris could best be differentiated based on their measurements [3].
 
 ![alt text](iris-flowers.png)
 
@@ -59,7 +59,7 @@ variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Clas
 data = pd.read_csv(datafile,header = None, names = variableNames ) 
 ```
 
-There are several ways to work with CSV files in python and I decided to use pandas as it makes simplifies the code and offers useful features [8]. The main line of code specifies "data" as a pandas data frame "pd.read_csv(datafile,header = None, names = variableNames)". I specify "header = None", to indicate that there are no rows for column names, and "names = variableNames", to create column names. The data frame format is comparable to an excel table, and dividing the data by rows and columns makes it easy to refer to in later functions[9]. For example, when I group the variables by their class, or use imported functions. Matplotlib and Seaborn allow you to reference a dataframe in many of their functions.
+There are several ways to work with CSV files in python and I decided to use pandas as it simplifies the code and offers useful features [8]. The main line of code specifies "data" as a pandas data frame "pd.read_csv(datafile,header = None, names = variableNames)". I specify "header = None", to indicate that there are no rows for column names, and "names = variableNames", to create column names. The data frame format is comparable to an excel table, and dividing the data by rows and columns makes it easy to refer to in later functions[9]. For example, when I group the variables by their class, or use imported functions. Matplotlib and Seaborn allow you to reference a dataframe in many of their functions.
 
 
 
@@ -116,10 +116,6 @@ for i in variableNames:
 
 To create summary statistics for the variables I use two features from the pandas module. The first lets me refer to a particular variable (column) in the data, "data[i]". "describe()"
 takes this input and creates summary statistics, such as the mean, standard deviation and count. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [13]. The summary statistics allow us to get a better understanding of the data. We can easily see what the averages are for the different variables and the variation between observations.
-
-
-
-
 
 
 

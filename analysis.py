@@ -79,8 +79,8 @@ petalWidth = data["Petal-Width"].to_numpy()
 
 # scatter plots
 
-xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght] # these are lists of out arrays
-yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth] # create in this order to create the scatter plots
+xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght] # these are lists of arrays
+yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth] # create in this order for the scatter plots
 Titles = ["Sepal-Lenght_Sepal-Width","Sepal-Lenght_Petal-Lenght","Sepal-Lenght_Petal-Width",\
 "Sepal-Width_Petal-Width","Sepal-Width_Petal-Lenght","Petal-Lenght_Petal-Width"] # the loop will look like this.
 
@@ -113,7 +113,7 @@ IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
 #statistical tests
 
 #F-Test petal lenght
-a = irisSetosa["Petal-Lenght"].to_numpy() # select the colum petal lenght from the iris-setosa data frame and make an array.
+a = irisSetosa["Petal-Lenght"].to_numpy() # select the column petal lenght from the iris-setosa data frame and make an array.
 b = IrisVersicolor["Petal-Lenght"].to_numpy() 
 c = IrisVirginica["Petal-Lenght"].to_numpy()
 
