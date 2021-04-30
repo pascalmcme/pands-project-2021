@@ -97,7 +97,7 @@ for i, j, k in zip(xVariables,yVariables,Titles):
 # summary statistics by iris class
 groupMeans = data.groupby(["Class"]).mean()
 appendTable(groupMeans,"\n Group Means")
-groupDesc = data.groupby(["Class"]).describe(percentiles = [])
+groupDesc = data.groupby(["Class"]).describe()
 appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 

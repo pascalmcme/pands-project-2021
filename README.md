@@ -222,8 +222,41 @@ As one of the original uses for this data set was to see which variables could b
 
 
 # Summary Statistics by Group
-To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
-   
+
+```python
+groupMeans = data.groupby(["Class"]).mean()
+appendTable(groupMeans,"\n Group Means")
+groupDesc = data.groupby(["Class"]).describe()
+appendTable(groupDesc,"\n Descriptive Statistics by Class")
+```
+
+
+
+To get summary statistics for each class of iris plant I first need to group the data by class. This is done with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "Class" my function is data.groupby(["Class"]). Mean() takes this array, grouped by class, and computes the mean of each variable for each group.
+
+
+| Group Means     |              |             |              |             |
+|-----------------|--------------|-------------|--------------|-------------|
+|                 | Sepal-Lenght | Sepal-Width | Petal-Lenght | Petal-Width |
+| Class           |              |             |              |             |
+| Iris-setosa     | 5.01         | 3.42        | 1.46         | 0.24        |
+| Iris-versicolor | 5.94         | 2.77        | 4.26         | 1.33        |
+| Iris-virginica  | 6.59         | 2.97        | 5.55         | 2.03        |
+
+
+describe() takes the same input and produces descriptive statistics, in addition to the mean we can see other statistics such as the count and standard deviation. Note that I do not display the full output, which would include the descriptive statistics for the other variables, however the information is available in the output.txt. 
+
+| Sepal Lenght   |       |      |      |     |      |     |     |     |
+| Class          | count | mean | std  | min | 25%  | 50% | 75% | max |
+|----------------|-------|------|------|-----|------|-----|-----|-----|
+| Iris-setosa    | 50.0  | 5.01 | 0.35 | 4.3 | 4.80 | 5.0 | 5.2 | 5.8 |
+| Iris-versicolo | 50.0  | 5.94 | 0.52 | 4.9 | 5.60 | 5.9 | 6.3 | 7.0 |
+| Iris-virginica | 50.0  | 6.59 | 0.64 | 4.9 | 6.23 | 6.5 | 6.9 | 7.9 |
+|                |       |      |      |     |      |     |     |     |
+
+
+
+
 [20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html<br> 
 [21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping<br> 
 [22] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html<br> 
@@ -234,6 +267,7 @@ For the statistical test I need to be able to seperate the data by class. Using 
 
 [26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values<br> 
 [27] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html<br> 
+
 
 
 # Statistical Tests

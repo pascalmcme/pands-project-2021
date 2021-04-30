@@ -59,12 +59,12 @@ Iris-virginica           6.59         2.97          5.55         2.03
  
 
  Descriptive Statistics by Class
-                Sepal-Lenght                            Sepal-Width                            Petal-Lenght                             Petal-Width                           
-                       count  mean   std  min  50%  max       count  mean   std  min  50%  max        count  mean   std  min   50%  max       count  mean   std  min  50%  max
-Class                                                                                                                                                                         
-Iris-setosa             50.0  5.01  0.35  4.3  5.0  5.8        50.0  3.42  0.38  2.3  3.4  4.4         50.0  1.46  0.17  1.0  1.50  1.9        50.0  0.24  0.11  0.1  0.2  0.6
-Iris-versicolor         50.0  5.94  0.52  4.9  5.9  7.0        50.0  2.77  0.31  2.0  2.8  3.4         50.0  4.26  0.47  3.0  4.35  5.1        50.0  1.33  0.20  1.0  1.3  1.8
-Iris-virginica          50.0  6.59  0.64  4.9  6.5  7.9        50.0  2.97  0.32  2.2  3.0  3.8         50.0  5.55  0.55  4.5  5.55  6.9        50.0  2.03  0.27  1.4  2.0  2.5
+                Sepal-Lenght                                       Sepal-Width                                        Petal-Lenght                                        Petal-Width                                     
+                       count  mean   std  min   25%  50%  75%  max       count  mean   std  min   25%  50%   75%  max        count  mean   std  min  25%   50%   75%  max       count  mean   std  min  25%  50%  75%  max
+Class                                                                                                                                                                                                                     
+Iris-setosa             50.0  5.01  0.35  4.3  4.80  5.0  5.2  5.8        50.0  3.42  0.38  2.3  3.12  3.4  3.68  4.4         50.0  1.46  0.17  1.0  1.4  1.50  1.58  1.9        50.0  0.24  0.11  0.1  0.2  0.2  0.3  0.6
+Iris-versicolor         50.0  5.94  0.52  4.9  5.60  5.9  6.3  7.0        50.0  2.77  0.31  2.0  2.52  2.8  3.00  3.4         50.0  4.26  0.47  3.0  4.0  4.35  4.60  5.1        50.0  1.33  0.20  1.0  1.2  1.3  1.5  1.8
+Iris-virginica          50.0  6.59  0.64  4.9  6.23  6.5  6.9  7.9        50.0  2.97  0.32  2.2  2.80  3.0  3.18  3.8         50.0  5.55  0.55  4.5  5.1  5.55  5.88  6.9        50.0  2.03  0.27  1.4  1.8  2.0  2.3  2.5
  
 
 Petal-Lenght F-Test
