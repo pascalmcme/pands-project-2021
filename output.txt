@@ -41,10 +41,10 @@ min        0.10
 max        2.50
  
 Class
-count                 150
-unique                  3
-top       Iris-versicolor
-freq                   50
+count                150
+unique                 3
+top       Iris-virginica
+freq                  50
  
 
 The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.

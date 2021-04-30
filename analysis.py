@@ -74,8 +74,8 @@ petalWidth = data["Petal-Width"].to_numpy()
 
 xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght]
 yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth]
-Titles = ["Sepal-Lenght Sepal-Width","Sepal-Lenght Petal-Lenght","Sepal-Lenght Petal-Width",\
-"Sepal-Width Petal-Width","Sepal-Width Petal-Lenght","Petal-Lenght Petal-Width"]
+Titles = ["Sepal-Lenght_Sepal-Width","Sepal-Lenght_Petal-Lenght","Sepal-Lenght_Petal-Width",\
+"Sepal-Width_Petal-Width","Sepal-Width_Petal-Lenght","Petal-Lenght_Petal-Width"]
 
 
 for i, j, k in zip(xVariables,yVariables,Titles):
