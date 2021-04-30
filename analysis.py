@@ -1,10 +1,13 @@
+# To make the code more readable I leave most explanations in the README.
+
 #install packages and set options
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 import scipy as stats
 from scipy.stats import f_oneway
-import seaborn as sns
+
 
 
 pd.set_option("precision", 2) # set pandas decimal precision
@@ -141,24 +144,6 @@ sepalLenghtTest = f_oneway(a,b,c)
 appendText("Sepal-Width F-Test")
 appendText(repr(sepalLenghtTest))
 
-#appendText(sepalLenghtTest)
 
 
 
-''''
-
-# histograms
-
-colors = ["aqua","coral","indigo","lavender","lightgreen"]
-
-n_bins = 15
-for i, j  in zip(variableNames, colors):
-    plt.hist(data[i], n_bins, facecolor = j)
-    plt.title("Histogram of " + i)
-    plt.savefig(i + ".png")
-    plt.close()
-    
-sns.kdeplot(data=data, x="petal lenght", hue="class", multiple="stack")
-plt.show()
-
-'''

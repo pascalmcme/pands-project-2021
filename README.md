@@ -1,17 +1,19 @@
 # Table of Contents
-* [Summary of the data set](#summary-of-the-data-set)
-* [Opening the Data](#opening-the-data)
-* [Output File](#output-file)
-* [Summary Statistics](#summary-statistics)
-* [Histograms](#histograms)
-* [Data as Arrays](#data-as-arrays)
-* [Scatter Plots](#[scatter-plots)
+* [Itroduction](#introduction)
+    * [Summary of the data set](#summary-of-the-data-set)
+    * [Running the Code](#running-the-code)
+    * [Packages and Options](#packages-and-options)
+    * [Opening the Data](#opening-the-data)
+    * [Output File](#output-file)
+* [Summary Statistics and Data Visualisation](#introduction)
+    * [Summary Statistics](#summary-statistics)
+    * [Histograms](#histograms)
+    * [Data as Arrays](#data-as-arrays)
+    * [Scatter Plots](#[scatter-plots)
 * [Additional Analysis](#additional-analysis)
     * [Summary Statistics by Group](#summary-statistics-by-group])
     * [Group by Class](#group-by-class)
     * [Statistical Tests](#statistical-tests)
-
-
 
 
 
@@ -25,8 +27,45 @@ The iris data set is available from the UCI machine learning repository [1]. It 
 [2] https://www.sciencedirect.com/topics/mathematics/iris-data<br> 
 [3] Fisher,R.A. "The use of multiple measurements in taxonomic problems" Annual Eugenics, 7, Part II, 179-188 (1936); also in "Contributions to Mathematical Statistics" (John Wiley, NY, 1950).<br> 
 
+# Running the Code
+It is important to have the dataset saved as "iris.data" and in the same directory as the python script[4]. Using a interative developpment enviroment such as Visual Studio code is recommended, to easily view the outputs and make changes to the script[5]. It is recommended to have Anaconda installed, as the code requires the installation of additional packages.
+[4]https://python.land/creating-python-programs
+[5]https://code.visualstudio.com/docs/python/python-tutorial
+
+# Packages and Options
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy as stats
+from scipy.stats import f_oneway
+
+
+
+pd.set_option("precision", 2) # set pandas decimal precision
+sns.set_theme(palette="magma") #set color seaborn plots
+```
+
+Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for plotting
 # Opening the Data
-For opening the data stored in a csv file I used [4] as  a reference. I decided to use the pandas module to import the data as it made it easy to write the code. With one line of code I could import the data and store it as a data frame. This is a familiar data structure, with the rows showing different observations and the columns their respective attributes. Pandas also offers many other useful features, for example manipulating or visualising data [5]. 
+
+
+```python
+datafile = "iris.data"
+variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Class"]
+data = pd.read_csv(datafile,header = None, names = variableNames ) 
+```
+
+There are a number of ways to work with CSV files in python and I decided to use pandas as it makes simplifies the code and offers useful features [4].  With one line of code I could import the data and store it as a data frame. 
+
+
+
+
+This is a familiar data structure, with the rows showing different observations and the columns their respective attributes. Pandas also offers many other useful features, for example manipulating or visualising data [5].
+
+
+
 
 [4] https://realpython.com/python-csv/<br> 
 [5] https://pandas.pydata.org/docs/user_guide/index.html#user-guide<br> 
@@ -46,6 +85,15 @@ To create summary statistics for the variables I used the describe() funtion fro
 [7] https://stackoverflow.com/questions/43423950/how-to-print-title-above-pandas-dataframe-to-csv<br> 
 [8] https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html#frequently-used-options<br> 
 
+
+# Summary Statistics by Group
+To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
+  
+
+ 
+[20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html<br> 
+[21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping<br> 
+[22] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html<br> 
 
 # Histograms
 To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I 
@@ -80,9 +128,9 @@ I created a scatter plot of the the variables using the scatter() function from 
 This allows for parallel iteration [19]. Note there are four variables in total, however the class variable is categorical so I omit it in the scatter plots. 
 |                                         |                                         |
 |:---------------------------------------:|:---------------------------------------:|                             
-![alt-text-1](petal-lenght_petal-width.png "title-1") | ![alt-text-2](sepal-lenght_petal-lenght.png "title-2")|
-![alt-text-1](sepal-lenght_petal-width.png "title-1") | ![alt-text-2](sepal-lenght_sepal-width.png "title-2")|
-![alt-text-1](sepal-width_petal-lenght.png "title-1") | ![alt-text-2](sepal-width_petal-width.png "title-2")|
+![alt-text-1](Petal-Lenght_Petal-Width.png "title-1") | ![alt-text-2](Sepal-Lenght_Petal-Lenght.png "title-2")|
+![alt-text-1](Sepal-Lenght_Petal-Width.png "title-1") | ![alt-text-2](Sepal-Lenght_Sepal-Width.png "title-2")|
+![alt-text-1](Sepal-Width_Petal-Lenght.png "title-1") | ![alt-text-2](Sepal-Width_Petal-Width.png "title-2")|
 
 [17]https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html<br> 
 [18]https://www.w3schools.com/python/python_for_loops.asp<br> 
@@ -91,16 +139,6 @@ This allows for parallel iteration [19]. Note there are four variables in total,
 
 # Additional Analysis
 As one of the original uses for this data set was to see which variables could best be used to differentiate classes of the iris plant, I would like to see how the variables, such as sepal lenght and width, vary across the different classes. Some useful approaches include looking at summary statitics, by group, test statistics and graphical representations. 
-
-
-# Summary Statistics by Group
-To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
-  
-
- 
-[20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html<br> 
-[21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping<br> 
-[22] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html<br> 
 
 
 
