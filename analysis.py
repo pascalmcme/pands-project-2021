@@ -8,7 +8,7 @@ import seaborn as sns
 
 
 pd.set_option("precision", 2) # set pandas decimal precision
-sns.set_theme(palette="pastel") #set color seaborn plots
+sns.set_theme(palette="magma") #set color seaborn plots
 
 # Define functions
 def appendTable(input,title):
@@ -33,7 +33,7 @@ with open("output.txt", "w") as f:  # want a new file - open in write mode/
 
 # Import data
 datafile = "iris.data"
-variableNames = ["sepal-lenght","sepal-width","petal-lenght","petal-width","class"]
+variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Class"]
 data = pd.read_csv(datafile,header = None, names = variableNames ) 
 
 # summary statistics
@@ -51,9 +51,9 @@ appendText(summaryDesc)
 # histograms
 
 
-for i in variableNames:
+for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
 
-    sns.histplot(data=data, x=i, hue="class", multiple="stack",bins=15,)
+    sns.histplot(data=data, x=i, hue="Class", multiple="stack",bins=15,kde=True) # remove class for kde 
     sns.light_palette("seagreen", as_cmap=True)
     plt.xlabel(i+" in cm")
     plt.title("Histogram of " + i)
@@ -64,40 +64,40 @@ for i in variableNames:
 
 # Data as arrays
 
-sepalLenght = data["sepal-lenght"].to_numpy()
-sepalWidth = data["sepal-width"].to_numpy()
-petalLenght = data["petal-lenght"].to_numpy()
-petalWidth = data["petal-width"].to_numpy()
+sepalLenght = data["Sepal-Lenght"].to_numpy()
+sepalWidth = data["Sepal-Width"].to_numpy()
+petalLenght = data["Petal-Lenght"].to_numpy()
+petalWidth = data["Petal-Width"].to_numpy()
 
 
 # scatter plots
 
 xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght]
 yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth]
-Titles = ["sepal-lenght sepal-width","sepal-lenght petal-lenght","sepal-lenght petal-width",\
-"sepal-width petal-width","sepal-width petal-lenght","petal-lenght petal-width"]
+Titles = ["Sepal-Lenght Sepal-Width","Sepal-Lenght Petal-Lenght","Sepal-Lenght Petal-Width",\
+"Sepal-Width Petal-Width","Sepal-Width Petal-Lenght","Petal-Lenght Petal-Width"]
 
 
 for i, j, k in zip(xVariables,yVariables,Titles):
     #plt.scatter(i,j)
-    sns.scatterplot(data=data, x=i, y=j,hue="class")
+    sns.scatterplot(data=data, x=i, y=j,hue="Class")
     plt.savefig(k)
     plt.close()
     
 
 
 # summary statistics by iris class
-groupMeans = data.groupby(["class"]).mean()
+groupMeans = data.groupby(["Class"]).mean()
 appendTable(groupMeans,"\n Group Means")
-groupDesc = data.groupby(["class"]).describe(percentiles = [])
+groupDesc = data.groupby(["Class"]).describe(percentiles = [])
 appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
 
 # group by class
-irisSetosa = data.loc[data["class"] == "Iris-setosa"]
-IrisVersicolor = data.loc[data["class"] == "Iris-versicolor"]
-IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
+irisSetosa = data.loc[data["Class"] == "Iris-setosa"]
+IrisVersicolor = data.loc[data["Class"] == "Iris-versicolor"]
+IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
 
 
 
@@ -105,18 +105,18 @@ IrisVirginica = data.loc[data["class"] == "Iris-virginica"]
 #statistical tests
 
 #F-Test petal lenght
-a = irisSetosa["petal-lenght"].to_numpy()
-b = IrisVersicolor["petal-lenght"].to_numpy()
-c = IrisVirginica["petal-lenght"].to_numpy()
+a = irisSetosa["Petal-Lenght"].to_numpy()
+b = IrisVersicolor["Petal-Lenght"].to_numpy()
+c = IrisVirginica["Petal-Lenght"].to_numpy()
 
 petalLenghtTest = f_oneway(a,b,c)
 appendText("Petal-Lenght F-Test")
 appendText(repr(petalLenghtTest))
 
 #F-Test petal width
-a = irisSetosa["petal-width"].to_numpy()
-b = IrisVersicolor["petal-width"].to_numpy()
-c = IrisVirginica["petal-width"].to_numpy()
+a = irisSetosa["Petal-Width"].to_numpy()
+b = IrisVersicolor["Petal-Width"].to_numpy()
+c = IrisVirginica["Petal-Width"].to_numpy()
 
 
 petalWidthTest = (f_oneway(a,b,c))
@@ -124,18 +124,18 @@ appendText("Petal-Width F-Test")
 appendText(repr(petalWidthTest))
 
 #F-Test sepal lenght
-a = irisSetosa["sepal-lenght"].to_numpy()
-b = IrisVersicolor["sepal-lenght"].to_numpy()
-c = IrisVirginica["sepal-lenght"].to_numpy()
+a = irisSetosa["Sepal-Lenght"].to_numpy()
+b = IrisVersicolor["Sepal-Lenght"].to_numpy()
+c = IrisVirginica["Sepal-Lenght"].to_numpy()
 
 sepalLenghtTest = f_oneway(a,b,c)
 appendText("Sepal-Lenght F-Test")
 appendText(repr(sepalLenghtTest))
 
 #F-Test sepal width
-a = irisSetosa["sepal-width"].to_numpy()
-b = IrisVersicolor["sepal-width"].to_numpy()
-c = IrisVirginica["sepal-width"].to_numpy()
+a = irisSetosa["Sepal-Width"].to_numpy()
+b = IrisVersicolor["Sepal-Width"].to_numpy()
+c = IrisVirginica["Sepal-Width"].to_numpy()
 
 sepalLenghtTest = f_oneway(a,b,c)
 appendText("Sepal-Width F-Test")
