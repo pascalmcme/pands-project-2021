@@ -246,8 +246,8 @@ To get summary statistics for each class of iris plant I first need to group the
 
 describe() takes the same input and produces descriptive statistics, in addition to the mean we can see other statistics such as the count and standard deviation. Note that I do not display the full output, which would include the descriptive statistics for the other variables, however the information is available in the output.txt. 
 
-| Sepal Lenght   |       |      |      |     |      |     |     |     |
-| Class          | count | mean | std  | min | 25%  | 50% | 75% | max |
+
+| Sepal Lenghts  | count | mean | std  | min | 25%  | 50% | 75% | max |
 |----------------|-------|------|------|-----|------|-----|-----|-----|
 | Iris-setosa    | 50.0  | 5.01 | 0.35 | 4.3 | 4.80 | 5.0 | 5.2 | 5.8 |
 | Iris-versicolo | 50.0  | 5.94 | 0.52 | 4.9 | 5.60 | 5.9 | 6.3 | 7.0 |
@@ -263,7 +263,15 @@ describe() takes the same input and produces descriptive statistics, in addition
 
 
 # Group by Class
-For the statistical test I need to be able to seperate the data by class. Using the function loc[] I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
+```python
+irisSetosa = data.loc[data["Class"] == "Iris-setosa"]
+IrisVersicolor = data.loc[data["Class"] == "Iris-versicolor"]
+IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
+```
+
+
+
+For the statistical test I need to be able to seperate the data by class. Using pandas' loc[] function I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
 
 [26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values<br> 
 [27] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html<br> 
@@ -271,6 +279,17 @@ For the statistical test I need to be able to seperate the data by class. Using 
 
 
 # Statistical Tests
+
+```python
+a = irisSetosa["Petal-Lenght"].to_numpy()
+b = IrisVersicolor["Petal-Lenght"].to_numpy()
+c = IrisVirginica["Petal-Lenght"].to_numpy()
+
+petalLenghtTest = f_oneway(a,b,c)
+appendText("Petal-Lenght F-Test")
+appendText(repr(petalLenghtTest))
+```
+
 I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing  whether the variation between classes observed in the summary statistics is due to chance or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [25]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width . The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
 
 I import scipy, which includes many different functions for statisitical testing [24]. I use the scipy function f_oneway() for one-way ANOVA[27]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
@@ -302,7 +321,6 @@ My result allow me to reject the null hpyothesis that the measurements are the s
 
 
 # additional references
-
 
 
 
