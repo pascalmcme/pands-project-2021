@@ -80,9 +80,9 @@ I created a scatter plot of the the variables using the scatter() function from 
 This allows for parallel iteration [19]. Note there are four variables in total, however the class variable is categorical so I omit it in the scatter plots. 
 |                                         |                                         |
 |:---------------------------------------:|:---------------------------------------:|                             
-![alt-text-1](petal-lenght petal-width.png "title-1") | ![alt-text-2](sepal-lenght petal-lenght.png "title-2")|
-![alt-text-1](sepal-lenght petal-width.png "title-1") | ![alt-text-2](sepal-lenght sepal-width.png "title-2")|
-![alt-text-1](sepal-width petal-lenght.png "title-1") | ![alt-text-2](sepal-width petal-width.png "title-2")|
+![alt-text-1](petal-lenght_petal-width.png "title-1") | ![alt-text-2](sepal-lenght_petal-lenght.png "title-2")|
+![alt-text-1](sepal-lenght_petal-width.png "title-1") | ![alt-text-2](sepal-lenght_sepal-width.png "title-2")|
+![alt-text-1](sepal-width_petal-lenght.png "title-1") | ![alt-text-2](sepal-width_petal-width.png "title-2")|
 
 [17]https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html<br> 
 [18]https://www.w3schools.com/python/python_for_loops.asp<br> 
