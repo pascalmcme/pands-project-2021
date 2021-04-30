@@ -60,7 +60,7 @@ for i in variableNames:
 
 for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
 
-    sns.histplot(data=data, x=i, hue="Class", multiple="stack",bins=15,kde=True) # remove class for kde 
+    sns.histplot(data=data, x=i, hue="Class",multiple="stack",bins=15,kde=True) # remove class for kde 
     sns.light_palette("seagreen", as_cmap=True)
     plt.xlabel(i+" in cm")
     plt.title("Histogram of " + i)
@@ -88,6 +88,7 @@ Titles = ["Sepal-Lenght_Sepal-Width","Sepal-Lenght_Petal-Lenght","Sepal-Lenght_P
 for i, j, k in zip(xVariables,yVariables,Titles):
     #plt.scatter(i,j)
     sns.scatterplot(data=data, x=i, y=j,hue="Class")
+    plt.title(k)
     plt.savefig(k)
     plt.close()
     

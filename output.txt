@@ -1,5 +1,8 @@
 iris.data Summary 
  
+
+The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.
+These variables refer to the dimensions of the Iris flower and the class refers to type of plant. 
 Sepal-Lenght
 count    150.00
 mean       5.84
@@ -41,14 +44,11 @@ min        0.10
 max        2.50
  
 Class
-count                 150
-unique                  3
-top       Iris-versicolor
-freq                   50
+count             150
+unique              3
+top       Iris-setosa
+freq               50
  
-
-The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.
-These variables refer to the dimensions of the Iris flower and the class refers to type of plant. 
 
  Group Means
                  Sepal-Lenght  Sepal-Width  Petal-Lenght  Petal-Width

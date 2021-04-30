@@ -120,7 +120,7 @@ for i in variableNames:
 
 ```
 
-To create summary statistics for the variables I use two features from the pandas module. The first lets me refer to a particular variable (row) in the data,data[i]. describe()
+To create summary statistics for the variables I use two features from the pandas module. The first lets me refer to a particular variable (column) in the data,data[i]. describe()
 takes this input and creates summary statistics, such as the mean, standard deviation and count. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. 
 
 [6] https://pandas.pydata.org/docs/user_guide/basics.html#descriptive-statistics<br> 
@@ -130,25 +130,52 @@ takes this input and creates summary statistics, such as the mean, standard devi
 
 
 # Histograms
-To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I 
-use a historgrom using two indices, one for the variable name and title and another for the color. I use a zip() funtion, which is described in more detail in the scatter plots section.
+
+
+```python
+for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
+
+    sns.histplot(data=data, x=i, hue="Class", multiple="stack",bins=15,kde=True) # remove class for kde 
+    sns.light_palette("seagreen", as_cmap=True)
+    plt.xlabel(i+" in cm")
+    plt.title("Histogram of " + i)
+    plt.savefig(i + ".png")
+    plt.close()
+```
+
+
+
+
+To create historgrams of the variables I use the histplot() from seaborn. Initially I used Matplotlib, however I chose Seaborn for the additional features. The first two paramaters of the histplot function are the data, the variables (columns) to be plotted. the option multiple="stack" means that multiple observations are stacked on top of each other, which allows all the information to be in the same place, but is slightly less clear. bins=15 sets the numbers of intervals to divide the data the observations. The additional features offered here by Seaborn are the options hue and kde. Setting hue="Class" results in a different bar color for each class of iris. This allows for useful comparisons between the classes. For example, from the plots below we notice that iris-setosa has the smallest petal lenght and width measurments while iris-verginica has the largest. Setting kde=True allows us to see an estimate of the full distibution, as we only observe a sample which is subject to sample variation, this setting gives us a better idea of the underlying population.  
+
+The matplotlib functions handle the other parts of creating the plot, such as labelling the axes plt.xlabel(), adding a title plt.title(), saving the figure plt.savefig(), and closing it before starting a new one plt.close().
+
 
 |                                         |                                         |
 |:---------------------------------------:|:---------------------------------------:|                             
 ![alt-text-1](petal-lenght.png "title-1") | ![alt-text-2](petal-width.png "title-2")|
 ![alt-text-1](sepal-lenght.png "title-1") | ![alt-text-2](sepal-width.png "title-2")|
 
-[9] https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist<br> 
-[10]https://matplotlib.org/stable/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py<br> 
+ 
+ 
 [11]https://stackoverflow.com/questions/18648626/for-loop-with-two-variables<br> 
 [12]https://stackoverflow.com/questions/37734512/savefig-loop-adds-previous-plots-to-figure<br> 
 [13]https://matplotlib.org/3.1.1/tutorials/colors/colors.html<br> 
-https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot#seaborn.histplot<br> 
-https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette<br> 
+[]https://seaborn.pydata.org/generated/seaborn.histplot.html?highlight=histplot#seaborn.histplot<br> 
+[]https://seaborn.pydata.org/generated/seaborn.color_palette.html#seaborn.color_palette<br> 
+https://en.wikipedia.org/wiki/Kernel_density_estimation<br>
 
 
 # Data as Arrays
+```python
+sepalLenght = data["Sepal-Lenght"].to_numpy()
+sepalWidth = data["Sepal-Width"].to_numpy()
+petalLenght = data["Petal-Lenght"].to_numpy()
+petalWidth = data["Petal-Width"].to_numpy()
+```
+
 Storing the columns as arrays is useful in the case that the whole data frame is not needed. It is also necessary for some of the plotting functions in matplotlib, which do not allow for dataframe inputs. The dataFrame.to_numpy() function converts a dataframe object type to a numpy array. dataFrame is the name of the dataframe object, in my case data. In order to get an array for each column or variable I select columns from the data frame using dataFrame("column name") [14]
+
 
 
 [14] https://pandas.pydata.org/docs/user_guide/10min.html<br> 
@@ -158,8 +185,27 @@ Storing the columns as arrays is useful in the case that the whole data frame is
 
 
 # Scatter Plots
-I created a scatter plot of the the variables using the scatter() function from matplotlib. I use the default paramaters (x,y) to plot 6 pairs of variables. Matplotlib handles the other parts of creating the graph, such as creating the figure and axis. The other funtions I use are plt.savefig(), and plt.close(). Plt.savefig() takes the filename as a paramater and plt.close() is necessary to create a new figure, so that the individual plots, plt.scatter(), are created seperately. To reduce the lines in the code I use a zip() function 
-This allows for parallel iteration [19]. Note there are four variables in total, however the class variable is categorical so I omit it in the scatter plots. 
+
+
+```python
+xVariables = [sepalLenght,sepalLenght,sepalLenght,sepalWidth,sepalWidth,petalLenght]
+yVariables = [sepalWidth,petalLenght,petalWidth,petalWidth,petalLenght,petalWidth]
+Titles = ["Sepal-Lenght_Sepal-Width","Sepal-Lenght_Petal-Lenght","Sepal-Lenght_Petal-Width",\
+"Sepal-Width_Petal-Width","Sepal-Width_Petal-Lenght","Petal-Lenght_Petal-Width"]
+
+
+for i, j, k in zip(xVariables,yVariables,Titles):
+    #plt.scatter(i,j)
+    sns.scatterplot(data=data, x=i, y=j,hue="Class")
+    plt.title(k)
+    plt.savefig(k)
+    plt.close()
+    
+```
+
+I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of zip(), which allows multiple variables to be iterated in the loop. Note that i and j corresponds to the column title k. I created a scatter plot of the the variables using the scatterplot() funtion from Seaborn. Scatter() takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which is detailed in [histograms](#histograms).
+
+
 |                                         |                                         |
 |:---------------------------------------:|:---------------------------------------:|                             
 ![alt-text-1](Petal-Lenght_Petal-Width.png "title-1") | ![alt-text-2](Sepal-Lenght_Petal-Lenght.png "title-2")|
@@ -206,7 +252,7 @@ I import scipy, which includes many different functions for statisitical testing
 | Sepal-Width F-Test                                                          |
 | F_onewayResult(statistic=47.36446140299382, pvalue=1.3279165184572242e-16)  |
 
-My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the chances of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91.
+My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the probability of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91.
 
 
 
