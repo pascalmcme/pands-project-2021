@@ -93,13 +93,25 @@ def appendText(input):
               f.write("\n")
 ```
 
-To save the output from the analysis I output my results to output.txt. I use a with statement to shorten the code and deal with error handling [6]. Open("output.txt", "w) takes the file name as its first arguement and the file is opened initially in write mode to create a new file when the code is run.  I create two functions, one for appending text the other for tables. open("output.txt", "a") opens the file in append mode. input.to_string() takes the tables produced by pandas and converts them to text.
+To save the output from the analysis I output my results to output.txt. I use a with statement to shorten the code and deal with error handling [6]. Open("output.txt", "w) takes the file name as its first arguement and the file is opened initially in write mode to create a new file when the code is run.  I create two functions, one for appending text the other for tables. open("output.txt", "a") opens the file in append mode. to_string() takes the tables produced by pandas and converts them to text.
 
 
 [6] https://www.geeksforgeeks.org/with-statement-in-python/#:~:text=with%20statement%20in%20Python%20is,with%20statement%20makes%20code%20cleaner.<br> 
 [7] https://realpython.com/working-with-files-in-python/<br> 
 
 # Summary Statistics
+
+| Sepal-Lenght |        | Sepal-Width |        | Petal-Lenght |        | Petal-Width |        | Class  |                 |
+|--------------|--------|-------------|--------|--------------|--------|-------------|--------|--------|-----------------|
+| count        | 150.00 | count       | 150.00 | count        | 150.00 | count       | 150.00 | count  | 150             |
+| mean         | 5.84   | mean        | 3.05   | mean         | 3.76   | mean        | 1.20   | unique | 3               |
+| std          | 0.83   | std         | 0.43   | std          | 1.76   | std         | 0.76   | top    | Iris-versicolor |
+| min          | 4.30   | min         | 2.00   | min          | 1.00   | min         | 0.10   | freq   | 50              |
+| 25%          | 5.10   | 25%         | 2.80   | 25%          | 1.60   | 25%         | 0.30   |        |                 |
+| 50%          | 5.80   | 50%         | 3.00   | 50%          | 4.35   | 50%         | 1.30   |        |                 |
+| 75%          | 6.40   | 75%         | 3.30   | 75%          | 5.10   | 75%         | 1.80   |        |                 |
+| max          | 7.90   | max         | 4.40   | max          | 6.90   | max         | 2.50   |        |                 |
+
 
 ```python
 for i in variableNames:
@@ -116,14 +128,6 @@ takes this input and creates summary statistics, such as the mean, standard devi
 
 
 
-# Summary Statistics by Group
-To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
-  
-
- 
-[20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html<br> 
-[21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping<br> 
-[22] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html<br> 
 
 # Histograms
 To create historgrams of the variables I use the hist() funtion from matplotlib[9]. In addition to plotting the variables I also include optional paramaters for the bin sizes and colors. I also used sample histograms from matplotlibs documentation as a reference[10]. The bins option allowed me to specify how many intervals I wanted to seperate the data into. I 
@@ -171,6 +175,13 @@ This allows for parallel iteration [19]. Note there are four variables in total,
 As one of the original uses for this data set was to see which variables could best be used to differentiate classes of the iris plant, I would like to see how the variables, such as sepal lenght and width, vary across the different classes. Some useful approaches include looking at summary statitics, by group, test statistics and graphical representations. 
 
 
+# Summary Statistics by Group
+To get summary statistics for each class of iris plant I first need to group the data by class. This is dont with the pandas inbuilt function data.groupby() which takes a column name as its argument[20]. As I labeled the dataframe column with the class names "class" my function is data.groupby(["class"]). To get summary statistics by groups I apply the desc() and sum() functions to these groups. In the describe command I add the option desc(percentiles = []), since the output is easier to read without them [22] and percentiles.
+   
+[20]https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html<br> 
+[21] https://pandas.pydata.org/docs/user_guide/10min.html?highlight=group#grouping<br> 
+[22] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html<br> 
+
 
 # Group by Class
 For the statistical test I need to be able to seperate the data by class. Using the function loc[] I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
@@ -178,12 +189,24 @@ For the statistical test I need to be able to seperate the data by class. Using 
 [26] https://stackoverflow.com/questions/17071871/how-to-select-rows-from-a-dataframe-based-on-column-values<br> 
 [27] https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html<br> 
 
+
 # Statistical Tests
 I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing  whether the variation between classes observed in the summary statistics is due to chance or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [25]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width . The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
 
 I import scipy, which includes many different functions for statisitical testing [24]. I use the scipy function f_oneway() for one-way ANOVA[27]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
 
-My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the chances of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91. The full results can be found in the output.txt. 
+
+| Petal-Lenght F-Test                                                         |
+|-----------------------------------------------------------------------------|
+| F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91) |
+| Petal-Width F-Test                                                          |
+| F_onewayResult(statistic=959.3244057257613, pvalue=4.376956957488959e-85)   |
+| Sepal-Lenght F-Test                                                         |
+| F_onewayResult(statistic=119.26450218450468, pvalue=1.6696691907693826e-31) |
+| Sepal-Width F-Test                                                          |
+| F_onewayResult(statistic=47.36446140299382, pvalue=1.3279165184572242e-16)  |
+
+My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the chances of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91.
 
 
 
@@ -207,3 +230,4 @@ https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html overview of stati
 https://www.kite.com/python/docs/builtins.repr convert value to string
 https://stackoverflow.com/questions/11256433/how-to-show-math-equations-in-general-githubs-markdownnot-githubs-blog writing to github
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+https://www.tablesgenerator.com/markdown_tables
