@@ -24,8 +24,7 @@
 
 The iris data set is available from the UCI machine learning repository [1]. It is a frequently used database for demonstrating tools in data analysis [2]. The data set consists of 150 observations of iris plants. Five attributes are recorded. Sepal length, sepal width, petal length, petal width, are measured in centimetres. The class if also given which refers to the type of iris plant. There are three classes with 50 observations of each, namely Iris Setosa, Iris Versicolour and Iris Virginica. The data set was famously used in a study measuring how these three classes of iris could best be differentiated based on their measurements [3].
 
-![flower](iris-flowers.png)
-
+![alt text](iris-flowers.png)
 
 # Running the Code
 It is important to have the dataset saved as "iris.data" and in the same directory as the python script [4]. Using a interative developpment enviroment such as Visual Studio code is recommended, to easily view the outputs and make changes to the script [5]. It is also recommended to have Anaconda installed, as the code requires the installation of additional packages.
@@ -189,7 +188,7 @@ for i, j, k in zip(xVariables,yVariables,Titles):
     
 ```
 
-I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of "zip()", which allows multiple variables to be iterated in the loop. Note that "i" and "j" correspond to the column title "k". I created a scatter plot of the the variables using the "scatterplot()" funtion from Seaborn. "Scatterplot()" takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which is detailed in [histograms](#histograms).
+I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of "zip()", which allows multiple variables to be iterated in the loop. Note that "i" and "j" correspond to the column title "k". I created a scatter plot of the the variables using the "scatterplot()" funtion from Seaborn. "Scatterplot()" takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which are detailed in [histograms](#histograms).
 
 The scatter plots also tell us a lot about the data, especially after introducing the hue option. This allows us to see the correlations for the different variables within each class. For example we can see a positive correlation between petal lenght and petal width for iris-virginica and iris-versicolor, but the relationship is less apparent in iris setosa. We can also see many different inisghts, such as that the relationship between sepal width and petal width is weak. 
 
