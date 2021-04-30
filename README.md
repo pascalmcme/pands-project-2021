@@ -15,8 +15,8 @@
     * [Summary Statistics by Group](#summary-statistics-by-group])
     * [Group by Class](#group-by-class)
     * [Statistical Tests](#statistical-tests)
-*[Conclusion](#conclusion)
-*[References](#references)
+* [Conclusion](#conclusion)
+* [References](#references)
 
 
 
@@ -27,7 +27,7 @@ The iris data set is available from the UCI machine learning repository [1]. It 
 
 
 # Running the Code
-It is important to have the dataset saved as "iris.data" and in the same directory as the python script [4]. Using a interative developpment enviroment such as Visual Studio code is recommended, to easily view the outputs and make changes to the script [5]. It is recommended to have Anaconda installed, as the code requires the installation of additional packages.
+It is important to have the dataset saved as "iris.data" and in the same directory as the python script [4]. Using a interative developpment enviroment such as Visual Studio code is recommended, to easily view the outputs and make changes to the script [5]. It is also recommended to have Anaconda installed, as the code requires the installation of additional packages.
 
 
 # Packages and Options
@@ -45,9 +45,9 @@ pd.set_option("precision", 2) # set pandas decimal precision
 sns.set_theme(palette="magma") #set color seaborn plots
 ```
 
-Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for the plotting functions. Pandas is a tool for data analysis and manipulation. I use pandas to import the data and convert it into a data frame, and for summary statistics. Matplotlib.pyplot included many different functions for plotting. It offers extensive tools for creating and customiing plots. Seaborn offers additional plotting tools and is based on Matplotlib. Finally, I use scipy for its statistical testing functions and the f_oneway function is for one-way ANOVA testing. 
+Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for the plotting functions. Pandas is a tool for data analysis and manipulation. I use pandas to import the data and convert it into a data frame, and for summary statistics. Matplotlib.pyplot includes many different functions for plotting. It offers extensive tools for creating and customising plots. Seaborn offers additional plotting tools and is based on Matplotlib. Finally, I use scipy for its statistical testing functions and the f_oneway function is for one-way ANOVA testing. 
 
-For the pandas module I use set_option("precision", 2) which limits decimal outputs to two decimal places. For seaborn, I use the set_theme(palette="magma"), which defines the color scheme of seaborn plots. 
+For the pandas module I use "set_option("precision", 2)" which limits decimal outputs to two decimal places. For seaborn, I use the "set_theme(palette="magma")", which defines the color scheme of seaborn plots. 
 
 
 # Opening the Data
@@ -59,7 +59,7 @@ variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Clas
 data = pd.read_csv(datafile,header = None, names = variableNames ) 
 ```
 
-There are several ways to work with CSV files in python and I decided to use pandas as it makes simplifies the code and offers useful features [8]. The main line of code specifies "data" as a pandas data frame pd.read_csv(datafile,header = None, names = variableNames). I specify header = None, to indicate that there are no rows for column names, and names = variableNames, to create column names. The data frame format is comparable to an excel table, and dividing the data by rows and columns makes it easy to refer to in later functions[9]. For example, when I group the variables by their class, or use imported functions. Matplotlib and Seaborn allow you to reference a dataframe in many of their functions.
+There are several ways to work with CSV files in python and I decided to use pandas as it makes simplifies the code and offers useful features [8]. The main line of code specifies "data" as a pandas data frame "pd.read_csv(datafile,header = None, names = variableNames)". I specify "header = None", to indicate that there are no rows for column names, and "names = variableNames", to create column names. The data frame format is comparable to an excel table, and dividing the data by rows and columns makes it easy to refer to in later functions[9]. For example, when I group the variables by their class, or use imported functions. Matplotlib and Seaborn allow you to reference a dataframe in many of their functions.
 
 
 
@@ -88,7 +88,7 @@ def appendText(input):
               f.write("\n")
 ```
 
-To save the output from the analysis I output my results to output.txt. I use a with statement to shorten the code and deal with error handling [10]. Open("output.txt", "w) takes the file name as its first arguement and the file is opened initially in write mode to create a new file when the code is run.  I create two functions, one for appending text the other for tables. open("output.txt", "a") opens the file in append mode. to_string() takes the tables produced by pandas and converts them to text.
+To save the output from the analysis I output my results to "output.txt". I use a with statement to shorten the code and deal with error handling [10]. "Open("output.txt", "w)" takes the file name as its first arguement and the file is opened initially in write mode to create a new file when the code is run.  I create two functions, one for appending text the other for tables. "open("output.txt", "a")" opens the file in append mode. "to_string()" takes the tables produced by pandas and converts them to text.
 
 
 
@@ -114,7 +114,7 @@ for i in variableNames:
 
 ```
 
-To create summary statistics for the variables I use two features from the pandas module. The first lets me refer to a particular variable (column) in the data,data[i]. describe()
+To create summary statistics for the variables I use two features from the pandas module. The first lets me refer to a particular variable (column) in the data, "data[i]". "describe()"
 takes this input and creates summary statistics, such as the mean, standard deviation and count. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [13]. The summary statistics allow us to get a better understanding of the data. We can easily see what the averages are for the different variables and the variation between observations.
 
 
@@ -140,7 +140,7 @@ for i in ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width"]:
 
 
 
-To create historgrams of the variables I use the histplot() from seaborn. Initially I used Matplotlib, however I chose Seaborn for the additional features. The first two paramaters of the histplot function are the data, the variables (columns) to be plotted. the option multiple="stack" means that multiple observations are stacked on top of each other, which allows all the information to be in the same place, with the downside of it being slightly less clear. bins=15 sets the numbers of intervals to divide the data the observations. The additional features offered here by Seaborn are the options hue and kde. Setting hue="Class" results in a different bar color for each class of iris. This allows for useful comparisons between the classes. For example, from the plots below we notice that iris-setosa has the smallest petal lenght and width measurments while iris-verginica has the largest. Setting kde=True allows us to see an estimate of the full distibution, as we only observe a sample which is subject to sample variation, this setting gives us a better idea of the underlying population.  The matplotlib functions handle the other parts of creating the plot, such as labelling the axes plt.xlabel(), adding a title plt.title(), saving the figure plt.savefig(), and closing it before starting a new one plt.close().
+To create historgrams of the variables I use the "histplot()" from seaborn. Initially I used Matplotlib, however I chose Seaborn for the additional features. The first two paramaters of the histplot function are the data, the variables (columns) to be plotted. the option "multiple="stack"" means that multiple observations are stacked on top of each other, which allows all the information to be in the same place, with the downside of it being slightly less clear. bins=15 sets the numbers of intervals to divide the data the observations. The additional features offered here by Seaborn are the options hue and kde. Setting "hue="Class"" results in a different bar color for each class of iris. This allows for useful comparisons between the classes. For example, from the plots below we notice that iris-setosa has the smallest petal lenght and width measurments while iris-verginica has the largest. Setting "kde=True" allows us to see an estimate of the full distibution, as we only observe a sample which is subject to sample variation, this setting gives us a better idea of the underlying population.  The matplotlib functions handle the other parts of creating the plot, such as labelling the axes "plt.xlabel()", adding a title "plt.title()", saving the figure "plt.savefig()", and closing it before starting a new one "plt.close()".
 
 The histograms offer a lot more information than the summary statistics. By visualising the data we can see what the distributions look like. The hue="Class" option is especially useful for providing insights as we can see the different distributions for each class of iris plant. For example, we can see that iris-setosa plants have small petal measurements but are average when it comes to sepal measurements.
 
@@ -163,7 +163,7 @@ petalLenght = data["Petal-Lenght"].to_numpy()
 petalWidth = data["Petal-Width"].to_numpy()
 ```
 
-Storing the columns as arrays is useful in the case that the whole data frame is not needed. It is also necessary for some of the plotting functions in matplotlib, which do not allow for dataframe inputs. The dataFrame.to_numpy() function converts a dataframe object type to a numpy array. dataFrame is the name of the dataframe object, in my case data. In order to get an array for each column or variable I select columns from the data frame using dataFrame("column name") [21].
+Storing the columns as arrays is useful in the case that the whole data frame is not needed. It is also necessary for some of the plotting functions in matplotlib, which do not allow for dataframe inputs. The "dataFrame.to_numpy()" function converts a dataframe object type to a numpy array. dataFrame is the name of the dataframe object, in my case data. In order to get an array for each column or variable I select columns from the data frame using "dataFrame("column name")" [21].
 
 
 
@@ -188,7 +188,7 @@ for i, j, k in zip(xVariables,yVariables,Titles):
     
 ```
 
-I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of zip(), which allows multiple variables to be iterated in the loop. Note that i and j corresponds to the column title k. I created a scatter plot of the the variables using the scatterplot() funtion from Seaborn. Scatter() takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which is detailed in [histograms](#histograms).
+I first setup the variables to pass into my loop for creating scatter plots. The xVariables and yVariables are the numpy arrays that I created. This setup ensures that I get a scatter for each pair variables, exluding the categorical class variable, which should be omitted in scatter plots. The loop makes use of "zip()", which allows multiple variables to be iterated in the loop. Note that "i" and "j" corresponds to the column title "k". I created a scatter plot of the the variables using the "scatterplot()" funtion from Seaborn. "Scatterplot()" takes two array inputs, for x and y. The rest of the funtions required to create and save the figure are handled by matplotlib, which is detailed in [histograms](#histograms).
 
 The scatter plots also tell us a lot about the data, especially after introducing the hue option. This allows us to see the correlations for the different variables within each class. For example we can see a positive correlation between petal lenght and petal width for iris-virginica and iris-versicolor, but the relationship is less apparent in iris setosa. We can also see many different inisghts, such as that the relationship between sepal width and petal width is weak. 
 
@@ -218,7 +218,7 @@ appendTable(groupDesc,"\n Descriptive Statistics by Class")
 
 
 
-To get summary statistics for each class of iris plant I first need to group the data by class. This is done with the pandas inbuilt function data.groupby() which takes a column name as its argument[26]. As I labeled the dataframe column with the class names "Class" my function is data.groupby(["Class"]). Mean() takes this array, grouped by class, and computes the mean of each variable for each group.
+To get summary statistics for each class of iris plant I first need to group the data by class. This is done with the pandas inbuilt function "data.groupby()" which takes a column name as its argument[26]. As I labeled the dataframe column with the class names "Class" my function is "data.groupby(["Class"])". "Mean()" takes this array, grouped by class, and computes the mean of each variable for each group.
 
 
 | Group Means     |              |             |              |             |
@@ -230,7 +230,7 @@ To get summary statistics for each class of iris plant I first need to group the
 | Iris-virginica  | 6.59         | 2.97        | 5.55         | 2.03        |
 
 
-describe() takes the same input and produces descriptive statistics, in addition to the mean we can see other statistics such as the count and standard deviation. Note that I do not display the full output, which would include the descriptive statistics for the other variables, however the information is available in the output.txt. 
+"describe()" takes the same input and produces descriptive statistics, in addition to the mean we can see other statistics such as the count and standard deviation. Note that I do not display the full output, which would include the descriptive statistics for the other variables, however the information is available in the output.txt. 
 
 
 | Sepal Lenghts  | count | mean | std  | min | 25%  | 50% | 75% | max |
@@ -254,7 +254,7 @@ IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
 
 
 
-For the statistical test I need to be able to seperate the data by class. Using pandas' loc[] function I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
+For the statistical test I need to be able to seperate the data by class. Using pandas' "loc[]" function I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
 
 
 
@@ -274,7 +274,7 @@ appendText(repr(petalLenghtTest))
 
 I am interested seeing how the variables, such as sepal lenght, vary across the different classes. It is therefore worth testing whether the variation between classes observed in the summary statistics is due to chance or whether it is due to differences across the classes. To test this I use one-way ANOVA, which is used to test whether there are any statistically significant differences between the means of two or more groups [31]. The groups are the different classes, setosa, versicolor and virginica and there are four means: sepal lenght, sepal width, petal lenght and petal width. The F-Test is used with the the null hypthoses that the means, such as speal lenght, are equal across the groups (&mu;<sub>setosa;</sub> = &mu;<sub>versicolor;</sub> = &mu;<sub>virginica;</sub>.  
 
-I import scipy, which includes many different functions for statisitical testing [32]. I use the scipy function f_oneway() for one-way ANOVA[]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
+I import scipy, which includes many different functions for statisitical testing [32]. I use the scipy function "f_oneway()" for one-way ANOVA[]. The first test looks at whether the variation in petal lenghts across the groups is statistically significant. f_oneway() takes the petal lenghts of each groups, which are arrays, as its inputs (setosa;<sub>petal lenght;</sub>versicolor;<sub>petal lenght;</sub>virginica;<sub>petal lenght;</sub>). It computes an F statistic (F= variation between groups / variation within groups) and reports this along with the p value, the probability of observing the test statistic. I complete the same test for the other measurments, petal width, sepal lenght, and sepal width.
 
 
 | Petal-Lenght F-Test                                                         |
