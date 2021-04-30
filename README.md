@@ -1,10 +1,10 @@
 # Table of Contents
-* [Itroduction](#introduction)
+* [Introduction](#introduction)
     * [Summary of the data set](#summary-of-the-data-set)
     * [Running the Code](#running-the-code)
     * [Packages and Options](#packages-and-options)
     * [Opening the Data](#opening-the-data)
-    * [Output File](#output-file)
+    * [Output](#output)
 * [Summary Statistics and Data Visualisation](#introduction)
     * [Summary Statistics](#summary-statistics)
     * [Histograms](#histograms)
@@ -47,7 +47,13 @@ pd.set_option("precision", 2) # set pandas decimal precision
 sns.set_theme(palette="magma") #set color seaborn plots
 ```
 
-Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for plotting
+Numpy offers useful tools for working with arrays. I use numpy arrays as inputs for the plotting functions. Pandas is a tool for data analysis and manipulation. I use pandas to import the data and convert it into a data frame, and for summary statistics. Matplotlib.pyplot included many different functions for plotting. It offer extensive tools for creating and customiing plots. Seaborn offers additional plotting tools and is based on Matplotlib. Finally I use scipy, for its statistical testing functions. The f_oneway function, is for one-way ANOVA testing. 
+
+For the pandas module I use set_option("precision", 2) which limits decimal outputs to two decimal places. For seaborn, I use the set_theme(palette="magma"), which defines the color scheme of seaborn plots. 
+
+[8] https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html#frequently-used-options<br> 
+[] https://seaborn.pydata.org/tutorial/color_palettes.html<br> 
+
 # Opening the Data
 
 
@@ -57,33 +63,57 @@ variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Clas
 data = pd.read_csv(datafile,header = None, names = variableNames ) 
 ```
 
-There are a number of ways to work with CSV files in python and I decided to use pandas as it makes simplifies the code and offers useful features [4].  With one line of code I could import the data and store it as a data frame. 
-
-
-
-
-This is a familiar data structure, with the rows showing different observations and the columns their respective attributes. Pandas also offers many other useful features, for example manipulating or visualising data [5].
-
-
-
+There are a number of ways to work with CSV files in python and I decided to use pandas as it makes simplifies the code and offers useful features [4]. The main line of code specifies "data" as a pandas data frame pd.read_csv(datafile,header = None, names = variableNames). I specify header = None, to indicate that there are no rows to indicate column names, and names = variableNames, to create column names. The data frame format is comparable to an excel table,and dividing the data by rows and columns makes it easy to refer to for later functions[5]. For example when I group the variables by their class, or for imported functions. Matplotlib and Seaborn allow you to reference a dataframe for many of their functions.
 
 [4] https://realpython.com/python-csv/<br> 
 [5] https://pandas.pydata.org/docs/user_guide/index.html#user-guide<br> 
 
 
-# Output File
-To save the output from the analysis I output my results to output.txt. I use a with statement to shorten the code and deal with error handling [6]. To creat the text file I use the function open() which takes the file name and the mode as its arguements. I open the file in write mode to create a new file when the program starts. To append the output of my results I write an append() function. This uses the file output.txt and opens it in append mode. 
+# Output
+
+```python
+
+filename = "output.txt"
+with open("output.txt", "w") as f:  # want a new file - open in write mode/
+    f.write("iris.data Analysis \n \n")
+
+
+def appendTable(input,title):
+    with open("output.txt", "a") as f: # append mode
+        output = input.to_string()
+        f.write(title + "\n")
+        f.write(output)
+        f.write("\n \n")
+        
+
+def appendText(input):
+          with open("output.txt", "a") as f:
+              f.write("\n")
+              f.write(input) 
+              f.write("\n")
+```
+
+To save the output from the analysis I output my results to output.txt. I use a with statement to shorten the code and deal with error handling [6]. Open("output.txt", "w) takes the file name as its first arguement and the file is opened initially in write mode to create a new file when the code is run.  I create two functions, one for appending text the other for tables. open("output.txt", "a") opens the file in append mode. input.to_string() takes the tables produced by pandas and converts them to text.
 
 
 [6] https://www.geeksforgeeks.org/with-statement-in-python/#:~:text=with%20statement%20in%20Python%20is,with%20statement%20makes%20code%20cleaner.<br> 
 [7] https://realpython.com/working-with-files-in-python/<br> 
 
 # Summary Statistics
-To create summary statistics for the variables I used the describe() funtion from the pandas module . The describe funtion can be used to generate summary statistics for a variable, such as the mean, standard deviation and percentiles. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. I use the option pd.set_option("precision", 2) whichs limit the number of decimal places, making the tables easier to read. 
+
+```python
+for i in variableNames:
+    summaryTable = data[i].describe()
+    appendTable(summaryTable,i)
+
+```
+
+To create summary statistics for the variables I use two features from the pandas module. The first lets me refer to a particular variable (row) in the data,data[i]. describe()
+takes this input and creates summary statistics, such as the mean, standard deviation and count. To output the summary tables to the text file, I first convert the data to text and use the inbuilt write funtion to append the tables. This is a flexible method, which allows titles and text to be added to the tables [7]. 
 
 [6] https://pandas.pydata.org/docs/user_guide/basics.html#descriptive-statistics<br> 
 [7] https://stackoverflow.com/questions/43423950/how-to-print-title-above-pandas-dataframe-to-csv<br> 
-[8] https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html#frequently-used-options<br> 
+
 
 
 # Summary Statistics by Group

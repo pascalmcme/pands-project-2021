@@ -13,7 +13,22 @@ from scipy.stats import f_oneway
 pd.set_option("precision", 2) # set pandas decimal precision
 sns.set_theme(palette="magma") #set color seaborn plots
 
-# Define functions
+
+
+# Import data
+datafile = "iris.data"
+variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Class"]
+data = pd.read_csv(datafile,header = None, names = variableNames ) 
+
+
+# Output
+
+
+filename = "output.txt"
+with open("output.txt", "w") as f:  # want a new file - open in write mode/
+    f.write("iris.data Summary \n \n")
+
+
 def appendTable(input,title):
     with open("output.txt", "a") as f: # append mode
         output = input.to_string()
@@ -28,28 +43,17 @@ def appendText(input):
               f.write(input) 
               f.write("\n")
 
-# Create the output file
-filename = "output.txt"
-with open("output.txt", "w") as f:  # want a new file - open in write mode/
-    f.write("iris.data Summary \n \n")
-    
-
-# Import data
-datafile = "iris.data"
-variableNames = ["Sepal-Lenght","Sepal-Width","Petal-Lenght","Petal-Width","Class"]
-data = pd.read_csv(datafile,header = None, names = variableNames ) 
 
 # summary statistics
+summaryDesc = """The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.
+These variables refer to the dimensions of the Iris flower and the class refers to type of plant. """
+appendText(summaryDesc)
+
 
 for i in variableNames:
     summaryTable = data[i].describe()
     appendTable(summaryTable,i)
 
-
-summaryDesc = """The summary statistics are shown for the variables: sepal lenght, sepal width, petal lenght, petal width and class.
-These variables refer to the dimensions of the Iris flower and the class refers to type of plant. """
-
-appendText(summaryDesc)
 
 # histograms
 
