@@ -24,6 +24,7 @@
 
 The iris data set is available from the UCI machine learning repository [1]. It is a frequently used database for demonstrating tools in data analysis [2]. The data set consists of 150 observations of iris plants. Five attributes are recorded. Sepal length, sepal width, petal length, petal width, are measured in centimetres. The class if also given which refers to the type of iris plant. There are three classes with 50 observations of each, namely Iris Setosa, Iris Versicolour and Iris Virginica. The data set was famously used in a study measuring how these three classes of iris could best be differentiated based on their measurements [3].
 
+[alt-text-1](iris-flowers.png "title-1")
 
 
 # Running the Code
@@ -230,7 +231,7 @@ To get summary statistics for each class of iris plant I first need to group the
 | Iris-virginica  | 6.59         | 2.97        | 5.55         | 2.03        |
 
 
-"describe()" takes the same input and produces descriptive statistics, in addition to the mean we can see other statistics such as the count and standard deviation. Note that I do not display the full output, which would include the descriptive statistics for the other variables, however the information is available in the output.txt. 
+"describe()" takes the same input and produces descriptive statistics, in addition to the mean we can see other statistics such as the count and standard deviation. Note that I do not display the full output, which includes the descriptive statistics for the other variables. This information is available in the output.txt. 
 
 
 | Sepal Lenghts  | count | mean | std  | min | 25%  | 50% | 75% | max |
@@ -254,10 +255,7 @@ IrisVirginica = data.loc[data["Class"] == "Iris-virginica"]
 
 
 
-For the statistical test I need to be able to seperate the data by class. Using pandas' "loc[]" function I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer a particular data. 
-
-
-
+For the statistical tests I seperate the data by class. Using pandas' "loc[]" function I can specify the data to select based on a column and condition. loc[] takes label values, for example a row or column name, and boolean arrays. I use these features to select the groups which are the same class. Seperating the data helps in future testing as it makes it easier to refer to the correct data. 
 
 
 # Statistical Tests
@@ -279,6 +277,7 @@ I import scipy, which includes many different functions for statisitical testing
 
 | Petal-Lenght F-Test                                                         |
 |-----------------------------------------------------------------------------|
+| Petal-Lenght F-Test                                                         |
 | F_onewayResult(statistic=1179.0343277002194, pvalue=3.0519758018278374e-91) |
 | Petal-Width F-Test                                                          |
 | F_onewayResult(statistic=959.3244057257613, pvalue=4.376956957488959e-85)   |
@@ -290,11 +289,12 @@ I import scipy, which includes many different functions for statisitical testing
 
 My result allow me to reject the null hpyothesis that the measurements are the same for the different classes of Iris. Taking the petal width test as an example, the F statistic is 1179, and the probability of observing this result if there are no differences in measurmenets across the classes is 3.05*e^-91.
 
+Although these results will have looked obvious from the summary statistics and plots, it is useful to carry out these test to know how certain we can be of our results.  It is also useful for demonstrating how scipy can be used in python, when the summary statistcics and graphs are less clear. 
+
 
 
 # Conclusion
-The main goal of this project was to use python for analysing a data set. Important takeaways are learning about the benefits of python's main packages for data analysis, which include pandas, numpy and matplotlib. These packages allowed for data manipulation, visualisation and statistical testing. Working with python is also very flexible, for example in allowing customization of outputs such as plots and statistics. Working with seaborn also offers many useful lessons for data visualisation. Their many examples encourage taking a different approach compared to traidtional plots. This allowed for useful insights, especially in the case of scatter plots. 
-
+The main goal of this project was to use python for analysing a data set. Important takeaways are learning about the benefits of python's main packages for data analysis, which include pandas, numpy and matplotlib. These packages allowed for data manipulation, visualisation and statistical testing. Working with python is also very flexible, for example in allowing customization of outputs such as plots and statistics. Working with seaborn also offers many useful lessons for data visualisation. Their examples encourage taking different approaches for plotting data. This allowed for useful insights, especially from the scatter plots. 
 
 # References
 [1] https://archive.ics.uci.edu/ml/datasets/iris<br> 
